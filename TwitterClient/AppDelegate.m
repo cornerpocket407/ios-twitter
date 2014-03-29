@@ -7,12 +7,34 @@
 //
 
 #import "AppDelegate.h"
+#import "LoginViewController.h"
+#import "TwitterClient.h"
+
+@implementation NSURL (dictionaryFromQueryString)
+-(NSDictionary *) dictionaryFromQueryString{
+    
+    NSString *query = [self query];
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:0];
+    NSArray *pairs = [query componentsSeparatedByString:@"&"];
+    
+    for (NSString *pair in pairs) {
+        NSArray *elements = [pair componentsSeparatedByString:@"="];
+        NSString *key = [[elements objectAtIndex:0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *val = [[elements objectAtIndex:1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        
+        [dict setObject:val forKey:key];
+    }
+    return dict;
+}
+@end
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    LoginViewController *lc = [[LoginViewController alloc] init];
+    self.window.rootViewController = lc;
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
@@ -44,6 +66,41 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    if ([url.scheme isEqualToString:@"tdaotwitter"])
+    {
+        if ([url.host isEqualToString:@"oauth"])
+        {
+            NSDictionary *parameters = [url dictionaryFromQueryString];
+            if (parameters[@"oauth_token"] && parameters[@"oauth_verifier"]) {
+                TwitterClient *client = [TwitterClient instance];
+                [client fetchAccessTokenWithPath:@"/oauth/access_token"
+                                                       method:@"POST"
+                                                 requestToken:[BDBOAuthToken tokenWithQueryString:url.query]
+                                                      success:^(BDBOAuthToken *accessToken) {
+                                                          NSLog(@"access token");
+                                                          [client.requestSerializer saveAccessToken:accessToken];
+                                                          
+                                                          [client homeTimelineWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                              NSLog(@"hometimeline success! response:%@", responseObject);
+                                                          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                              NSLog(@"hometimeline failed! error:%@", error);
+                                                          }];
+                                                      } failure:^(NSError *error) {
+                                                          NSLog(@"Error with access_token");
+                                                      }];
+            }
+        }
+        return YES;
+    }
+    return NO;
+        
 }
 
 @end

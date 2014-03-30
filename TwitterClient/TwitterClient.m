@@ -7,6 +7,9 @@
 //
 
 #import "TwitterClient.h"
+#import "MUJSONResponseSerializer.h"
+#import "HomeTimelineResult.h"
+
 @interface TwitterClient(){
 
 }
@@ -36,6 +39,8 @@
 }
 - (AFHTTPRequestOperation *) homeTimelineWithSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
                                              failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure; {
+    [self setResponseSerializer:[[MUJSONResponseSerializer alloc] init]];
+    [(MUJSONResponseSerializer *)[self responseSerializer] setResponseObjectClass:[Tweet class]];
     return [self GET:@"1.1/statuses/home_timeline.json" parameters:nil success:success failure:failure];
 }
 @end

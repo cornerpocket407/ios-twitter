@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-AFNetworking-MUJSONResponseSerializer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-AFNetworking.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>48888445CB7C40F482E5C1FF</key>
+		<key>192E6DF52B81493B93774725</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>87F23524AB90413BAF02BD10</key>
+		<key>737FDEC866EC4059B3848E24</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>88417E719E8C4769966EE193</key>
+		<key>A21943C7979441F98BEFBA94</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A47A65526A8C48D19825DC64</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "192E6DF52B81493B93774725"
-               BuildableName = "libPods.a"
-               BlueprintName = "Pods"
+               BlueprintIdentifier = "737FDEC866EC4059B3848E24"
+               BuildableName = "libPods-AFNetworking-MUJSONResponseSerializer.a"
+               BlueprintName = "Pods-AFNetworking-MUJSONResponseSerializer"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

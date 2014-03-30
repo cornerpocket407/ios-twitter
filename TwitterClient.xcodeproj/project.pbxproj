@@ -22,6 +22,16 @@
 		6D8C822F18E68921001D8CA2 /* TwitterClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C822E18E68921001D8CA2 /* TwitterClient.m */; };
 		6D8C823418E6967F001D8CA2 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C823218E6967F001D8CA2 /* LoginViewController.m */; };
 		6D8C823518E6967F001D8CA2 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D8C823318E6967F001D8CA2 /* LoginViewController.xib */; };
+		6D8C823918E6BFEF001D8CA2 /* HomeTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C823718E6BFEF001D8CA2 /* HomeTimelineViewController.m */; };
+		6D8C823A18E6BFEF001D8CA2 /* HomeTimelineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D8C823818E6BFEF001D8CA2 /* HomeTimelineViewController.xib */; };
+		6D8C823E18E7585F001D8CA2 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C823D18E7585F001D8CA2 /* Tweet.m */; };
+		6D8C824118E758DC001D8CA2 /* HomeTimelineResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C824018E758DC001D8CA2 /* HomeTimelineResult.m */; };
+		6D8C824418E7BFB9001D8CA2 /* NSObject+logProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C824318E7BFB9001D8CA2 /* NSObject+logProperties.m */; };
+		6D8C824718E7C1CB001D8CA2 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C824618E7C1CB001D8CA2 /* User.m */; };
+		6D8C824A18E7C386001D8CA2 /* Entities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C824918E7C386001D8CA2 /* Entities.m */; };
+		6D8C824D18E7C3AA001D8CA2 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C824C18E7C3AA001D8CA2 /* Media.m */; };
+		6D8C825218E7C5E7001D8CA2 /* TweetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C825018E7C5E7001D8CA2 /* TweetTableViewCell.m */; };
+		6D8C825318E7C5E7001D8CA2 /* TweetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D8C825118E7C5E7001D8CA2 /* TweetTableViewCell.xib */; };
 		F2C214674EB3473088CF58AE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94D4FCC5B92B4A1FA4FCBA83 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +68,24 @@
 		6D8C823118E6967F001D8CA2 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		6D8C823218E6967F001D8CA2 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		6D8C823318E6967F001D8CA2 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		6D8C823618E6BFEF001D8CA2 /* HomeTimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTimelineViewController.h; sourceTree = "<group>"; };
+		6D8C823718E6BFEF001D8CA2 /* HomeTimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTimelineViewController.m; sourceTree = "<group>"; };
+		6D8C823818E6BFEF001D8CA2 /* HomeTimelineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeTimelineViewController.xib; sourceTree = "<group>"; };
+		6D8C823C18E7585F001D8CA2 /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
+		6D8C823D18E7585F001D8CA2 /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
+		6D8C823F18E758DC001D8CA2 /* HomeTimelineResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTimelineResult.h; sourceTree = "<group>"; };
+		6D8C824018E758DC001D8CA2 /* HomeTimelineResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTimelineResult.m; sourceTree = "<group>"; };
+		6D8C824218E7BFB9001D8CA2 /* NSObject+logProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+logProperties.h"; sourceTree = "<group>"; };
+		6D8C824318E7BFB9001D8CA2 /* NSObject+logProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+logProperties.m"; sourceTree = "<group>"; };
+		6D8C824518E7C1CB001D8CA2 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		6D8C824618E7C1CB001D8CA2 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		6D8C824818E7C386001D8CA2 /* Entities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entities.h; sourceTree = "<group>"; };
+		6D8C824918E7C386001D8CA2 /* Entities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entities.m; sourceTree = "<group>"; };
+		6D8C824B18E7C3AA001D8CA2 /* Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Media.h; sourceTree = "<group>"; };
+		6D8C824C18E7C3AA001D8CA2 /* Media.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Media.m; sourceTree = "<group>"; };
+		6D8C824F18E7C5E7001D8CA2 /* TweetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetTableViewCell.h; sourceTree = "<group>"; };
+		6D8C825018E7C5E7001D8CA2 /* TweetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetTableViewCell.m; sourceTree = "<group>"; };
+		6D8C825118E7C5E7001D8CA2 /* TweetTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetTableViewCell.xib; sourceTree = "<group>"; };
 		94D4FCC5B92B4A1FA4FCBA83 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -121,6 +149,8 @@
 		6D8C820318E688CE001D8CA2 /* TwitterClient */ = {
 			isa = PBXGroup;
 			children = (
+				6D8C824E18E7C58B001D8CA2 /* Views */,
+				6D8C823B18E6C347001D8CA2 /* Model */,
 				6D8C823018E69667001D8CA2 /* ViewControllers */,
 				6D8C822C18E68904001D8CA2 /* client */,
 				6D8C820C18E688D0001D8CA2 /* AppDelegate.h */,
@@ -175,8 +205,40 @@
 				6D8C823118E6967F001D8CA2 /* LoginViewController.h */,
 				6D8C823218E6967F001D8CA2 /* LoginViewController.m */,
 				6D8C823318E6967F001D8CA2 /* LoginViewController.xib */,
+				6D8C823618E6BFEF001D8CA2 /* HomeTimelineViewController.h */,
+				6D8C823718E6BFEF001D8CA2 /* HomeTimelineViewController.m */,
+				6D8C823818E6BFEF001D8CA2 /* HomeTimelineViewController.xib */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		6D8C823B18E6C347001D8CA2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6D8C823C18E7585F001D8CA2 /* Tweet.h */,
+				6D8C823D18E7585F001D8CA2 /* Tweet.m */,
+				6D8C823F18E758DC001D8CA2 /* HomeTimelineResult.h */,
+				6D8C824018E758DC001D8CA2 /* HomeTimelineResult.m */,
+				6D8C824218E7BFB9001D8CA2 /* NSObject+logProperties.h */,
+				6D8C824318E7BFB9001D8CA2 /* NSObject+logProperties.m */,
+				6D8C824518E7C1CB001D8CA2 /* User.h */,
+				6D8C824618E7C1CB001D8CA2 /* User.m */,
+				6D8C824818E7C386001D8CA2 /* Entities.h */,
+				6D8C824918E7C386001D8CA2 /* Entities.m */,
+				6D8C824B18E7C3AA001D8CA2 /* Media.h */,
+				6D8C824C18E7C3AA001D8CA2 /* Media.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		6D8C824E18E7C58B001D8CA2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6D8C824F18E7C5E7001D8CA2 /* TweetTableViewCell.h */,
+				6D8C825018E7C5E7001D8CA2 /* TweetTableViewCell.m */,
+				6D8C825118E7C5E7001D8CA2 /* TweetTableViewCell.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +318,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D8C825318E7C5E7001D8CA2 /* TweetTableViewCell.xib in Resources */,
 				6D8C820818E688CF001D8CA2 /* InfoPlist.strings in Resources */,
 				6D8C821018E688D1001D8CA2 /* Images.xcassets in Resources */,
+				6D8C823A18E6BFEF001D8CA2 /* HomeTimelineViewController.xib in Resources */,
 				6D8C823518E6967F001D8CA2 /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,8 +376,16 @@
 			files = (
 				6D8C823418E6967F001D8CA2 /* LoginViewController.m in Sources */,
 				6D8C820E18E688D0001D8CA2 /* AppDelegate.m in Sources */,
+				6D8C824718E7C1CB001D8CA2 /* User.m in Sources */,
+				6D8C824118E758DC001D8CA2 /* HomeTimelineResult.m in Sources */,
+				6D8C823918E6BFEF001D8CA2 /* HomeTimelineViewController.m in Sources */,
+				6D8C823E18E7585F001D8CA2 /* Tweet.m in Sources */,
+				6D8C824418E7BFB9001D8CA2 /* NSObject+logProperties.m in Sources */,
 				6D8C822F18E68921001D8CA2 /* TwitterClient.m in Sources */,
+				6D8C824A18E7C386001D8CA2 /* Entities.m in Sources */,
 				6D8C820A18E688CF001D8CA2 /* main.m in Sources */,
+				6D8C824D18E7C3AA001D8CA2 /* Media.m in Sources */,
+				6D8C825218E7C5E7001D8CA2 /* TweetTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

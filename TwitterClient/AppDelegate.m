@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "HomeTimelineViewController.h"
 #import "LoginViewController.h"
 #import "TwitterClient.h"
 
@@ -27,14 +28,21 @@
     return dict;
 }
 @end
-
+@interface AppDelegate()
+@property (nonatomic, strong) UINavigationController *navController;
+@end
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    LoginViewController *lc = [[LoginViewController alloc] init];
-    self.window.rootViewController = lc;
+//    LoginViewController *lc = [[LoginViewController alloc] init];
+//    self.navController = [[UINavigationController alloc] initWithRootViewController:lc];
+      HomeTimelineViewController *lc = [[HomeTimelineViewController alloc] init];
+      self.navController = [[UINavigationController alloc] initWithRootViewController:lc];
+
+    self.navController.navigationBar.barTintColor = [UIColor colorWithRed:0.0f green:0.0f blue:1.0f alpha:1];
+    self.window.rootViewController = self.navController;
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
@@ -86,13 +94,9 @@
                                                       success:^(BDBOAuthToken *accessToken) {
                                                           NSLog(@"access token");
                                                           [client.requestSerializer saveAccessToken:accessToken];
-                                                          
-                                                          [client homeTimelineWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                                              NSLog(@"hometimeline success! response:%@", responseObject);
-                                                          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                              NSLog(@"hometimeline failed! error:%@", error);
-                                                          }];
-                                                      } failure:^(NSError *error) {
+                                                          HomeTimelineViewController *hc = [[HomeTimelineViewController alloc] init];
+                                                          [self.navController pushViewController:hc animated:YES];
+                                                        } failure:^(NSError *error) {
                                                           NSLog(@"Error with access_token");
                                                       }];
             }

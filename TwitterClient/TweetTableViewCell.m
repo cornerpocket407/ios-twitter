@@ -7,6 +7,7 @@
 //
 
 #import "TweetTableViewCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "Tweet.h"
 
 @implementation TweetTableViewCell
@@ -25,6 +26,7 @@
 
 - (void)setTweet:(Tweet *)tweet {
     self.nameLabel.text = tweet.user.name;
-    self.tweet.text = tweet.text;
+    self.tweetLabel.text = tweet.text;
+    [self.profileImage  setImageWithURL:[NSURL URLWithString:tweet.user.profileImageUrl]];
 }
 @end

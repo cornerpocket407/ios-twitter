@@ -41,7 +41,7 @@
       HomeTimelineViewController *lc = [[HomeTimelineViewController alloc] init];
       self.navController = [[UINavigationController alloc] initWithRootViewController:lc];
 
-    self.navController.navigationBar.barTintColor = [UIColor colorWithRed:0.0f green:0.0f blue:1.0f alpha:1];
+    self.navController.navigationBar.barTintColor = [UIColor colorWithRed:0.46f green:0.71f blue:0.90f alpha:1];
     self.window.rootViewController = self.navController;
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];

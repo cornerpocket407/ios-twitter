@@ -11,6 +11,7 @@
 #import "HomeTimelineResult.h"
 #import "NSObject+logProperties.h"
 #import "TweetTableViewCell.h"
+#import "Tweet.h"
 
 @interface HomeTimelineViewController ()
 @property (nonatomic, strong) TwitterClient *client;
@@ -19,6 +20,7 @@
 @end
 
 @implementation HomeTimelineViewController
+static TweetTableViewCell *cellPrototype;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,8 +37,10 @@
     [self setupUI];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.rowHeight = 100;
     UINib *tweetCellNib = [UINib nibWithNibName:@"TweetTableViewCell" bundle:nil];
     [self.tableView registerNib:tweetCellNib forCellReuseIdentifier:@"TweetTableViewCell"];
+    cellPrototype = [self.tableView dequeueReusableCellWithIdentifier:@"TweetTableViewCell"];
     [self loadHomeTimeline];
 }
 
@@ -75,5 +79,21 @@
     TweetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetTableViewCell" forIndexPath:indexPath];
     cell.tweet = self.tweets[indexPath.row];
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    Tweet *tweet = self.tweets[indexPath.row];
+    CGFloat nameLabelHeight = [self sizeOfLabel:cellPrototype.nameLabel font:[UIFont systemFontOfSize:14.0] withText:tweet.user.name].height;
+    CGFloat tweetLabelHeight = [self sizeOfLabel:cellPrototype.tweetLabel font:[UIFont systemFontOfSize:14.0] withText:tweet.text].height;
+
+//    // profile image + spacing + bar (21) + spacing
+    float spacing = 5;
+    float nameTweetHeight = nameLabelHeight + spacing + tweetLabelHeight;
+    float topPadding = 10;
+    float imageHeight = 60;
+    return topPadding + MAX(imageHeight, nameTweetHeight) + spacing + 21 + spacing;
+}
+- (CGSize)sizeOfLabel:(UILabel *)label font:(UIFont *)font withText:(NSString *)text {
+    return [text boundingRectWithSize:CGSizeMake(label.frame.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: font} context: nil].size;
 }
 @end

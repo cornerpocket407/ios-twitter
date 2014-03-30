@@ -83,16 +83,14 @@ static TweetTableViewCell *cellPrototype;
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     Tweet *tweet = self.tweets[indexPath.row];
-    CGFloat nameLabelHeight = [self sizeOfLabel:cellPrototype.nameLabel font:[UIFont systemFontOfSize:14.0] withText:tweet.user.name].height;
     CGFloat tweetLabelHeight = [self sizeOfLabel:cellPrototype.tweetLabel font:[UIFont systemFontOfSize:14.0] withText:tweet.text].height;
-
-//    // profile image + spacing + bar (21) + spacing
     float spacing = 5;
+    float nameLabelHeight = 15;
     float nameTweetHeight = nameLabelHeight + spacing + tweetLabelHeight;
     float topPadding = 10;
     float imageHeight = 60;
     float tweetBarHeight = 21;
-    return topPadding + MAX(imageHeight, nameTweetHeight) + spacing + tweetBarHeight + spacing;
+    return topPadding + MAX(imageHeight, nameTweetHeight) + 10 + tweetBarHeight + spacing;
 }
 - (CGSize)sizeOfLabel:(UILabel *)label font:(UIFont *)font withText:(NSString *)text {
     return [text boundingRectWithSize:CGSizeMake(label.frame.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: font} context: nil].size;

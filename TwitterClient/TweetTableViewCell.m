@@ -9,6 +9,7 @@
 #import "TweetTableViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "Tweet.h"
+#import "MHPrettyDate.h"
 
 @implementation TweetTableViewCell
 
@@ -27,6 +28,10 @@
 - (void)setTweet:(Tweet *)tweet {
     self.nameLabel.text = tweet.user.name;
     self.tweetLabel.text = tweet.text;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"eee MMM dd HH:mm:ss ZZZZ yyyy"];
+    NSDate *date = [dateFormatter dateFromString:tweet.createdAt];
+    self.dateLabel.text = [MHPrettyDate prettyDateFromDate:date withFormat:MHPrettyDateShortRelativeTime];
     [self.profileImage  setImageWithURL:[NSURL URLWithString:tweet.user.profileImageUrl]];
 }
 @end

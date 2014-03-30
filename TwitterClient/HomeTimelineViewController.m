@@ -91,7 +91,8 @@ static TweetTableViewCell *cellPrototype;
     float nameTweetHeight = nameLabelHeight + spacing + tweetLabelHeight;
     float topPadding = 10;
     float imageHeight = 60;
-    return topPadding + MAX(imageHeight, nameTweetHeight) + spacing + 21 + spacing;
+    float tweetBarHeight = 21;
+    return topPadding + MAX(imageHeight, nameTweetHeight) + spacing + tweetBarHeight + spacing;
 }
 - (CGSize)sizeOfLabel:(UILabel *)label font:(UIFont *)font withText:(NSString *)text {
     return [text boundingRectWithSize:CGSizeMake(label.frame.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: font} context: nil].size;

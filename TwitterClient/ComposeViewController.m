@@ -9,11 +9,14 @@
 #import "ComposeViewController.h"
 #import "TwitterClient.h"
 #import "ComposeHeaderViewCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface ComposeViewController ()
-@property (weak, nonatomic) IBOutlet UIView *profileView;
 @property (weak, nonatomic) IBOutlet UITextView *tweetView;
 @property (nonatomic, strong) TwitterClient *client;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImage;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *screenNameLabel;
 @end
 
 @implementation ComposeViewController
@@ -37,12 +40,11 @@
     }
     // Create a view
     ComposeHeaderViewCell *view = [[ComposeHeaderViewCell alloc] init];
-    view.name = [defaults objectForKey:@"name"];
-    view.screenName = [defaults objectForKey:@"screenName"];
-    view.profileImageUrl = [defaults objectForKey:@"profileImageUrl"];
+    self.nameLabel.text = [defaults objectForKey:@"name"];
+    self.screenNameLabel.text = [defaults objectForKey:@"screenName"];
+    [self.profileImage setImageWithURL:[NSURL URLWithString:[defaults objectForKey:@"profileImageUrl"]]];
     UIBarButtonItem *tweetBtn = [[UIBarButtonItem alloc] initWithTitle:@"Tweet" style:UIBarButtonItemStyleBordered target:self action:@selector(onTweet)];
     self.navigationItem.rightBarButtonItem = tweetBtn;
-    [self.profileView addSubview:view];
 }
 
 - (void)onTweet {

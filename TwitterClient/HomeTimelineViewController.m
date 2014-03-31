@@ -13,6 +13,7 @@
 #import "TweetTableViewCell.h"
 #import "Tweet.h"
 #import "ComposeViewController.h"
+#import "TweetController.h"
 
 @interface HomeTimelineViewController ()
 @property (nonatomic, strong) TwitterClient *client;
@@ -100,8 +101,15 @@ static TweetTableViewCell *cellPrototype;
     float tweetBarHeight = 21;
     return topPadding + MAX(imageHeight, nameTweetHeight) + 10 + tweetBarHeight + spacing;
 }
+
 - (CGSize)sizeOfLabel:(UILabel *)label font:(UIFont *)font withText:(NSString *)text {
     return [text boundingRectWithSize:CGSizeMake(label.frame.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: font} context: nil].size;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Tweet *tweet = self.tweets[indexPath.row];
+    TweetController *tc = [[TweetController alloc] initWithTweet:tweet];
+    [self.navigationController pushViewController:tc animated:YES];
 }
 #pragma ComposeViewControllerDelegate
 - (void)refreshHomeTimeline {

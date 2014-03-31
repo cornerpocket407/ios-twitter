@@ -36,6 +36,9 @@
 		6D8C825818E8DD68001D8CA2 /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D8C825618E8DD68001D8CA2 /* ComposeViewController.xib */; };
 		6D8C825C18E8EAE4001D8CA2 /* ComposeHeaderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C825A18E8EAE4001D8CA2 /* ComposeHeaderViewCell.m */; };
 		6D8C825D18E8EAE4001D8CA2 /* ComposeHeaderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D8C825B18E8EAE4001D8CA2 /* ComposeHeaderViewCell.xib */; };
+		6D8C826118E939E3001D8CA2 /* TweetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C825F18E939E3001D8CA2 /* TweetController.m */; };
+		6D8C826218E939E3001D8CA2 /* TweetController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D8C826018E939E3001D8CA2 /* TweetController.xib */; };
+		6D8C826518E9415F001D8CA2 /* RetweetStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C826418E9415F001D8CA2 /* RetweetStatus.m */; };
 		F2C214674EB3473088CF58AE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94D4FCC5B92B4A1FA4FCBA83 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +99,11 @@
 		6D8C825918E8EAE4001D8CA2 /* ComposeHeaderViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeHeaderViewCell.h; sourceTree = "<group>"; };
 		6D8C825A18E8EAE4001D8CA2 /* ComposeHeaderViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeHeaderViewCell.m; sourceTree = "<group>"; };
 		6D8C825B18E8EAE4001D8CA2 /* ComposeHeaderViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeHeaderViewCell.xib; sourceTree = "<group>"; };
+		6D8C825E18E939E3001D8CA2 /* TweetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetController.h; sourceTree = "<group>"; };
+		6D8C825F18E939E3001D8CA2 /* TweetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetController.m; sourceTree = "<group>"; };
+		6D8C826018E939E3001D8CA2 /* TweetController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetController.xib; sourceTree = "<group>"; };
+		6D8C826318E9415F001D8CA2 /* RetweetStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RetweetStatus.h; sourceTree = "<group>"; };
+		6D8C826418E9415F001D8CA2 /* RetweetStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RetweetStatus.m; sourceTree = "<group>"; };
 		94D4FCC5B92B4A1FA4FCBA83 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -221,6 +229,9 @@
 				6D8C825418E8DD68001D8CA2 /* ComposeViewController.h */,
 				6D8C825518E8DD68001D8CA2 /* ComposeViewController.m */,
 				6D8C825618E8DD68001D8CA2 /* ComposeViewController.xib */,
+				6D8C825E18E939E3001D8CA2 /* TweetController.h */,
+				6D8C825F18E939E3001D8CA2 /* TweetController.m */,
+				6D8C826018E939E3001D8CA2 /* TweetController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -240,6 +251,8 @@
 				6D8C824918E7C386001D8CA2 /* Entities.m */,
 				6D8C824B18E7C3AA001D8CA2 /* Media.h */,
 				6D8C824C18E7C3AA001D8CA2 /* Media.m */,
+				6D8C826318E9415F001D8CA2 /* RetweetStatus.h */,
+				6D8C826418E9415F001D8CA2 /* RetweetStatus.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -335,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D8C825318E7C5E7001D8CA2 /* TweetTableViewCell.xib in Resources */,
+				6D8C826218E939E3001D8CA2 /* TweetController.xib in Resources */,
 				6D8C825818E8DD68001D8CA2 /* ComposeViewController.xib in Resources */,
 				6D8C825D18E8EAE4001D8CA2 /* ComposeHeaderViewCell.xib in Resources */,
 				6D8C820818E688CF001D8CA2 /* InfoPlist.strings in Resources */,
@@ -396,6 +410,7 @@
 				6D8C820E18E688D0001D8CA2 /* AppDelegate.m in Sources */,
 				6D8C824718E7C1CB001D8CA2 /* User.m in Sources */,
 				6D8C824118E758DC001D8CA2 /* HomeTimelineResult.m in Sources */,
+				6D8C826118E939E3001D8CA2 /* TweetController.m in Sources */,
 				6D8C823918E6BFEF001D8CA2 /* HomeTimelineViewController.m in Sources */,
 				6D8C823E18E7585F001D8CA2 /* Tweet.m in Sources */,
 				6D8C824418E7BFB9001D8CA2 /* NSObject+logProperties.m in Sources */,
@@ -405,6 +420,7 @@
 				6D8C820A18E688CF001D8CA2 /* main.m in Sources */,
 				6D8C825718E8DD68001D8CA2 /* ComposeViewController.m in Sources */,
 				6D8C824D18E7C3AA001D8CA2 /* Media.m in Sources */,
+				6D8C826518E9415F001D8CA2 /* RetweetStatus.m in Sources */,
 				6D8C825218E7C5E7001D8CA2 /* TweetTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

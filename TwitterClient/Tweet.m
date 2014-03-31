@@ -16,6 +16,9 @@
     {
         // There is no need to map all properties, only those which you want to have diffrent names;
         self.propertyMap = @{@"created_at": @"createdAt",
+                             @"retweet_count": @"retweetCount",
+                             @"retweeted_status": @"retweetStatus",
+                             @"favorite_count": @"favoriteCount",
                              @"media_url":  @"mediaUrl"};
     }
     return self;

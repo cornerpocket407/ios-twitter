@@ -26,12 +26,13 @@
 }
 
 - (void)setTweet:(Tweet *)tweet {
-    self.nameLabel.text = tweet.user.name;
+    User *user = tweet.retweetStatus ? tweet.retweetStatus.user : tweet.user;
+    self.nameLabel.text = user.name;
     self.tweetLabel.text = tweet.text;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"eee MMM dd HH:mm:ss ZZZZ yyyy"];
     NSDate *date = [dateFormatter dateFromString:tweet.createdAt];
     self.dateLabel.text = [MHPrettyDate prettyDateFromDate:date withFormat:MHPrettyDateShortRelativeTime];
-    [self.profileImage  setImageWithURL:[NSURL URLWithString:tweet.user.profileImageUrl]];
+    [self.profileImage  setImageWithURL:[NSURL URLWithString:user.profileImageUrl]];
 }
 @end

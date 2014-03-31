@@ -11,6 +11,7 @@
 @interface TwitterClient : BDBOAuth1RequestOperationManager
 + (TwitterClient *) instance;
 - (void) login;
-- (AFHTTPRequestOperation *) homeTimelineWithSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
-failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+- (AFHTTPRequestOperation *) getAuthenticatedUser;
+- (AFHTTPRequestOperation *) homeTimelineWithSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+- (AFHTTPRequestOperation *) tweetWith:(NSString *) text success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 @end

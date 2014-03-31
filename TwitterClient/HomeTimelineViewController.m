@@ -12,6 +12,7 @@
 #import "NSObject+logProperties.h"
 #import "TweetTableViewCell.h"
 #import "Tweet.h"
+#import "ComposeViewController.h"
 
 @interface HomeTimelineViewController ()
 @property (nonatomic, strong) TwitterClient *client;
@@ -51,19 +52,25 @@ static TweetTableViewCell *cellPrototype;
 }
 
 - (void)setupUI {
-    UIBarButtonItem *newBtn = [[UIBarButtonItem alloc] initWithTitle:@"New" style:UIBarButtonItemStyleBordered target:self action:@selector(onFilter)];
+    UIBarButtonItem *newBtn = [[UIBarButtonItem alloc] initWithTitle:@"New" style:UIBarButtonItemStyleBordered target:self action: @selector(onCompose)];
     newBtn.tintColor = [UIColor whiteColor];
-    self.navigationItem.leftBarButtonItem = newBtn;
+    self.navigationItem.rightBarButtonItem = newBtn;
+}
+
+- (void)onCompose {
+    ComposeViewController *cc = [[ComposeViewController alloc] init];
+    [self.navigationController pushViewController:cc animated:YES];
 }
 
 - (void)loadHomeTimeline {
     [self.client homeTimelineWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"hometimeline success! response:%@", responseObject);
         self.tweets = responseObject;
-        for (Tweet *result in self.tweets) {
-            [result logProperties];
-            [result.user logProperties];
-        }
+// TODO: for logging. remove this.
+//        for (Tweet *result in self.tweets) {
+//            [result logProperties];
+//            [result.user logProperties];
+//        }
         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"hometimeline failed! error:%@", error);

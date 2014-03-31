@@ -9,6 +9,7 @@
 #import "TwitterClient.h"
 #import "MUJSONResponseSerializer.h"
 #import "HomeTimelineResult.h"
+#import "User.h"
 
 @interface TwitterClient(){
 
@@ -37,10 +38,32 @@
         NSLog(@"login failed: %@", error);
     }];
 }
+- (AFHTTPRequestOperation *) getAuthenticatedUser {
+    [self setResponseSerializer:[[MUJSONResponseSerializer alloc] init]];
+    [(MUJSONResponseSerializer *)[self responseSerializer] setResponseObjectClass:[User class]];
+    return [self GET:@"1.1/account/verify_credentials.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"getAuthenticatedUser succeed");
+        User *user = responseObject;
+        [user logProperties];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:user.name forKey:@"name"];
+        [defaults setObject:user.screenName forKey:@"screenName"];
+        [defaults setObject:user.profileImageUrl forKey:@"profileImageUrl"];
+        [defaults synchronize];
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"getAuthenticatedUser failed");
+    }];
+}
 - (AFHTTPRequestOperation *) homeTimelineWithSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
                                              failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure; {
     [self setResponseSerializer:[[MUJSONResponseSerializer alloc] init]];
     [(MUJSONResponseSerializer *)[self responseSerializer] setResponseObjectClass:[Tweet class]];
     return [self GET:@"1.1/statuses/home_timeline.json" parameters:nil success:success failure:failure];
+}
+- (AFHTTPRequestOperation *) tweetWith:(NSString *) text success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
+    [parameters setObject:text forKey:@"status"];
+    return [self POST:@"1.1/statuses/update.json" parameters:parameters success:success failure:failure];
 }
 @end

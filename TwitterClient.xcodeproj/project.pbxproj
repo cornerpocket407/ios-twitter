@@ -32,6 +32,10 @@
 		6D8C824D18E7C3AA001D8CA2 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C824C18E7C3AA001D8CA2 /* Media.m */; };
 		6D8C825218E7C5E7001D8CA2 /* TweetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C825018E7C5E7001D8CA2 /* TweetTableViewCell.m */; };
 		6D8C825318E7C5E7001D8CA2 /* TweetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D8C825118E7C5E7001D8CA2 /* TweetTableViewCell.xib */; };
+		6D8C825718E8DD68001D8CA2 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C825518E8DD68001D8CA2 /* ComposeViewController.m */; };
+		6D8C825818E8DD68001D8CA2 /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D8C825618E8DD68001D8CA2 /* ComposeViewController.xib */; };
+		6D8C825C18E8EAE4001D8CA2 /* ComposeHeaderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C825A18E8EAE4001D8CA2 /* ComposeHeaderViewCell.m */; };
+		6D8C825D18E8EAE4001D8CA2 /* ComposeHeaderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D8C825B18E8EAE4001D8CA2 /* ComposeHeaderViewCell.xib */; };
 		F2C214674EB3473088CF58AE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94D4FCC5B92B4A1FA4FCBA83 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +90,12 @@
 		6D8C824F18E7C5E7001D8CA2 /* TweetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetTableViewCell.h; sourceTree = "<group>"; };
 		6D8C825018E7C5E7001D8CA2 /* TweetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetTableViewCell.m; sourceTree = "<group>"; };
 		6D8C825118E7C5E7001D8CA2 /* TweetTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetTableViewCell.xib; sourceTree = "<group>"; };
+		6D8C825418E8DD68001D8CA2 /* ComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
+		6D8C825518E8DD68001D8CA2 /* ComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
+		6D8C825618E8DD68001D8CA2 /* ComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
+		6D8C825918E8EAE4001D8CA2 /* ComposeHeaderViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeHeaderViewCell.h; sourceTree = "<group>"; };
+		6D8C825A18E8EAE4001D8CA2 /* ComposeHeaderViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeHeaderViewCell.m; sourceTree = "<group>"; };
+		6D8C825B18E8EAE4001D8CA2 /* ComposeHeaderViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeHeaderViewCell.xib; sourceTree = "<group>"; };
 		94D4FCC5B92B4A1FA4FCBA83 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -208,6 +218,9 @@
 				6D8C823618E6BFEF001D8CA2 /* HomeTimelineViewController.h */,
 				6D8C823718E6BFEF001D8CA2 /* HomeTimelineViewController.m */,
 				6D8C823818E6BFEF001D8CA2 /* HomeTimelineViewController.xib */,
+				6D8C825418E8DD68001D8CA2 /* ComposeViewController.h */,
+				6D8C825518E8DD68001D8CA2 /* ComposeViewController.m */,
+				6D8C825618E8DD68001D8CA2 /* ComposeViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -237,6 +250,9 @@
 				6D8C824F18E7C5E7001D8CA2 /* TweetTableViewCell.h */,
 				6D8C825018E7C5E7001D8CA2 /* TweetTableViewCell.m */,
 				6D8C825118E7C5E7001D8CA2 /* TweetTableViewCell.xib */,
+				6D8C825918E8EAE4001D8CA2 /* ComposeHeaderViewCell.h */,
+				6D8C825A18E8EAE4001D8CA2 /* ComposeHeaderViewCell.m */,
+				6D8C825B18E8EAE4001D8CA2 /* ComposeHeaderViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -319,6 +335,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D8C825318E7C5E7001D8CA2 /* TweetTableViewCell.xib in Resources */,
+				6D8C825818E8DD68001D8CA2 /* ComposeViewController.xib in Resources */,
+				6D8C825D18E8EAE4001D8CA2 /* ComposeHeaderViewCell.xib in Resources */,
 				6D8C820818E688CF001D8CA2 /* InfoPlist.strings in Resources */,
 				6D8C821018E688D1001D8CA2 /* Images.xcassets in Resources */,
 				6D8C823A18E6BFEF001D8CA2 /* HomeTimelineViewController.xib in Resources */,
@@ -382,8 +400,10 @@
 				6D8C823E18E7585F001D8CA2 /* Tweet.m in Sources */,
 				6D8C824418E7BFB9001D8CA2 /* NSObject+logProperties.m in Sources */,
 				6D8C822F18E68921001D8CA2 /* TwitterClient.m in Sources */,
+				6D8C825C18E8EAE4001D8CA2 /* ComposeHeaderViewCell.m in Sources */,
 				6D8C824A18E7C386001D8CA2 /* Entities.m in Sources */,
 				6D8C820A18E688CF001D8CA2 /* main.m in Sources */,
+				6D8C825718E8DD68001D8CA2 /* ComposeViewController.m in Sources */,
 				6D8C824D18E7C3AA001D8CA2 /* Media.m in Sources */,
 				6D8C825218E7C5E7001D8CA2 /* TweetTableViewCell.m in Sources */,
 			);

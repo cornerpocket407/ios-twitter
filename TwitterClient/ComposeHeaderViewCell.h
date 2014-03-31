@@ -1,16 +1,15 @@
 //
-//  User.h
+//  ComposeHeaderViewCell.h
 //  TwitterClient
 //
-//  Created by Tony Dao on 3/29/14.
+//  Created by Tony Dao on 3/30/14.
 //  Copyright (c) 2014 Tony Dao. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "MUJSONResponseSerializer.h"
-#import "NSObject+logProperties.h"
+#import <UIKit/UIKit.h>
+#import "User.h"
 
-@interface User : MUJSONResponseObject
+@interface ComposeHeaderViewCell : UIView
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *screenName;
 @property (nonatomic, strong) NSString *profileImageUrl;

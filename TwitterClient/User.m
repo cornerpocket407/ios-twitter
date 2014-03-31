@@ -7,7 +7,6 @@
 //
 
 #import "User.h"
-#import "NSObject+logProperties.h"
 
 @implementation User
 - (instancetype)init

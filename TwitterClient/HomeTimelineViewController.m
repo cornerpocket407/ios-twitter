@@ -59,6 +59,7 @@ static TweetTableViewCell *cellPrototype;
 
 - (void)onCompose {
     ComposeViewController *cc = [[ComposeViewController alloc] init];
+    cc.delegate = self;
     [self.navigationController pushViewController:cc animated:YES];
 }
 
@@ -88,7 +89,7 @@ static TweetTableViewCell *cellPrototype;
     return cell;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     Tweet *tweet = self.tweets[indexPath.row];
     CGFloat tweetLabelHeight = [self sizeOfLabel:cellPrototype.tweetLabel font:[UIFont systemFontOfSize:14.0] withText:tweet.text].height;
     float spacing = 5;
@@ -101,5 +102,9 @@ static TweetTableViewCell *cellPrototype;
 }
 - (CGSize)sizeOfLabel:(UILabel *)label font:(UIFont *)font withText:(NSString *)text {
     return [text boundingRectWithSize:CGSizeMake(label.frame.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: font} context: nil].size;
+}
+#pragma ComposeViewControllerDelegate
+- (void)refreshHomeTimeline {
+    [self loadHomeTimeline];
 }
 @end

@@ -50,6 +50,8 @@
 - (void)onTweet {
     [self.client tweetWith:self.tweetView.text success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"tweet succeed");
+        [self.navigationController popViewControllerAnimated:YES];
+        [self.delegate refreshHomeTimeline];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"tweet failed. error: %@", error);
     }];

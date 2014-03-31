@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ComposeViewControllerDelegate <NSObject>
+- (void)refreshHomeTimeline;
+@end
 @interface ComposeViewController : UIViewController
-
-
+@property (nonatomic, weak) id <ComposeViewControllerDelegate> delegate;
 @end

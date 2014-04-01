@@ -43,7 +43,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //Places a placeholder text in the text view (IOS has no native support for this) http://stackoverflow.com/questions/1328638/placeholder-in-uitextview#answer-10201671
     [self initPlaceholderText];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -62,6 +61,7 @@
     self.navigationItem.rightBarButtonItem = tweetBtn;
 }
 
+//Places a placeholder text in the text view (IOS has no native support for this) http://stackoverflow.com/questions/1328638/placeholder-in-uitextview#answer-10201671
 - (void) initPlaceholderText {
     if (self.replyTweet) {
         self.tweetView.text = [NSString stringWithFormat:@"Compose Tweet here for @%@", self.replyTweet.user.screenName];

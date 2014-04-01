@@ -38,6 +38,9 @@
         NSLog(@"login failed: %@", error);
     }];
 }
+- (BOOL)isAuthorized {
+    return (self.requestSerializer.accessToken && !self.requestSerializer.accessToken.expired);
+}
 - (AFHTTPRequestOperation *) getAuthenticatedUser {
     [self setResponseSerializer:[[MUJSONResponseSerializer alloc] init]];
     [(MUJSONResponseSerializer *)[self responseSerializer] setResponseObjectClass:[User class]];

@@ -30,23 +30,23 @@
 @end
 @interface AppDelegate()
 @property (nonatomic, strong) UINavigationController *navController;
+@property (strong, nonatomic) TwitterClient *client;
 @end
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    LoginViewController *lc = [[LoginViewController alloc] init];
-//    self.navController = [[UINavigationController alloc] initWithRootViewController:lc];
-    
-//    BlahControllerViewController *lc = [[BlahControllerViewController alloc] initWithNibName:@"BlahControllerViewController" bundle:nil];
-    HomeTimelineViewController *lc = [[HomeTimelineViewController alloc] init];
-      self.navController = [[UINavigationController alloc] initWithRootViewController:lc];
-
+    TwitterClient *client = [TwitterClient instance];
+    if ([client isAuthorized]) {
+        HomeTimelineViewController *hc = [[HomeTimelineViewController alloc] init];
+        self.navController = [[UINavigationController alloc] initWithRootViewController:hc];
+	} else {
+        LoginViewController *lc = [[LoginViewController alloc] init];
+        self.navController = [[UINavigationController alloc] initWithRootViewController:lc];
+    }
     self.navController.navigationBar.barTintColor = [UIColor colorWithRed:0.46f green:0.71f blue:0.90f alpha:1];
     self.window.rootViewController = self.navController;
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
 }

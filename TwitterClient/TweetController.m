@@ -9,6 +9,7 @@
 #import "TweetController.h"
 #import "TweetBarView.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "ComposeViewController.h"
 
 @interface TweetController ()
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
@@ -34,14 +35,14 @@
 - (id)initWithTweet:(Tweet *)tweet {
     self = [super init];
     if (self) {
-        self.tweet = tweet;
+        self.tweet = tweet.retweetStatus ? tweet.retweetStatus : tweet;
     }
     return self;
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    Tweet *tweet = self.tweet.retweetStatus ? self.tweet.retweetStatus : self.tweet;
+    Tweet *tweet = self.tweet;
     User *user = tweet.user;
     self.nameLabel.text = user.name;
     self.screenNameLabel.text = user.screenName;
@@ -52,12 +53,23 @@
     self.favoritesLabel.text = [NSString stringWithFormat:@"%d FAVORITES", tweet.favoriteCount];
     [self.profileImage setImageWithURL:[NSURL URLWithString:user.profileImageUrl]];
     self.tweetBarView.tweet = tweet;
+    self.tweetBarView.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (void)replyTweet:(Tweet *)tweet {
+    ComposeViewController *cc = [[ComposeViewController alloc] initWithTweetToReply:self.tweet];
+    cc.delegate = self;
+    [self.navigationController pushViewController:cc animated:YES];
+}
+
+- (void)refreshHomeTimeline {
+    [self.navigationController popViewControllerAnimated:NO];
+    [self.delegate refreshHomeTimeline];
 }
 
 @end

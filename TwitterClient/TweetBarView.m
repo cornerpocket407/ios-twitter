@@ -53,13 +53,6 @@
 }
 
 - (void)onReply {
-    
-//    TweetComposeViewController *tweetComposeViewController = [[TweetComposeViewController alloc] initWithTweetModel:tweetModel];
-//	tweetComposeViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-//	tweetComposeViewController.delegate = self;
-//	
-//	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:tweetComposeViewController];
-//	[self.navigationController presentViewController:navController animated:YES completion:nil];
     NSLog(@"pressed reply");
     [self.delegate replyTweet:self.tweet];
 }

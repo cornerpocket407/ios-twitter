@@ -120,6 +120,7 @@ static TweetTableViewCell *cellPrototype;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Tweet *tweet = self.tweets[indexPath.row];
     TweetController *tc = [[TweetController alloc] initWithTweet:tweet];
+    tc.delegate = self;
     [self.navigationController pushViewController:tc animated:YES];
 }
 #pragma ComposeViewControllerDelegate

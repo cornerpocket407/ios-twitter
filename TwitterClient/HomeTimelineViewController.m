@@ -60,8 +60,9 @@ static TweetTableViewCell *cellPrototype;
     self.navigationItem.leftBarButtonItem = signOutBtn;
 }
 
-- (void)onSignOUt {
-    
+- (void)onSignOut {
+    [[TwitterClient instance] signOut];
+	[self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)onCompose {

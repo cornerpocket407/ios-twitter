@@ -38,14 +38,13 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     TwitterClient *client = [TwitterClient instance];
+    LoginViewController *lc = [[LoginViewController alloc] init];
+    self.navController = [[UINavigationController alloc] initWithRootViewController:lc];
+    self.navController.navigationBar.barTintColor = [UIColor colorWithRed:0.46f green:0.71f blue:0.90f alpha:1];
     if ([client isAuthorized]) {
         HomeTimelineViewController *hc = [[HomeTimelineViewController alloc] init];
-        self.navController = [[UINavigationController alloc] initWithRootViewController:hc];
-	} else {
-        LoginViewController *lc = [[LoginViewController alloc] init];
-        self.navController = [[UINavigationController alloc] initWithRootViewController:lc];
+        [self.navController pushViewController:hc animated:NO];
     }
-    self.navController.navigationBar.barTintColor = [UIColor colorWithRed:0.46f green:0.71f blue:0.90f alpha:1];
     self.window.rootViewController = self.navController;
     [self.window makeKeyAndVisible];
     return YES;

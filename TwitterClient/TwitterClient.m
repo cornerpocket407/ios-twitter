@@ -38,6 +38,9 @@
         NSLog(@"login failed: %@", error);
     }];
 }
+- (void) signOut {
+    [self.requestSerializer removeAccessToken];
+}
 - (BOOL)isAuthorized {
     return (self.requestSerializer.accessToken && !self.requestSerializer.accessToken.expired);
 }

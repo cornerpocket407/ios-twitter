@@ -21,5 +21,8 @@
 @property (nonatomic, strong) User *user;
 @property (nonatomic, strong) Tweet *retweetStatus;
 @property (nonatomic, strong) NSNumber *tweetId;
+//Twitter returns <null> if the tweet is not a reply. And MUJSONResponseSerializer will deserialize that into NSNull
+@property (nonatomic, strong) NSNumber *repliedTweetId;
+
 @end
 

@@ -20,6 +20,7 @@
                              @"retweeted_status": @"retweetStatus",
                              @"favorite_count": @"favoriteCount",
                              @"media_url":  @"mediaUrl",
+                             @"in_reply_to_status_id":  @"repliedTweetId",
                              @"id":  @"tweetId"};
     }
     return self;

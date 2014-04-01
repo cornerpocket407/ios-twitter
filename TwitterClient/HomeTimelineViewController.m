@@ -77,6 +77,7 @@ static TweetTableViewCell *cellPrototype;
 
 - (void)loadHomeTimeline {
     [self.client homeTimelineWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@", responseObject);
         self.tweets = responseObject;
         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

@@ -33,6 +33,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    self.tweetView.text = @"Compose Tweet Here";
+    self.tweetView.textColor = [UIColor lightGrayColor];
+    self.tweetView.delegate = self;
+    
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *name = [defaults objectForKey:@"name"];
     if (!name) {
@@ -56,6 +63,23 @@
         NSLog(@"tweet failed. error: %@", error);
     }];
 
+}
+
+- (BOOL) textViewShouldBeginEditing:(UITextView *)textView
+{
+    self.tweetView.text = @"";
+    self.tweetView.textColor = [UIColor blackColor];
+    return YES;
+}
+
+-(void) textViewDidChange:(UITextView *)textView
+{
+    
+    if(self.tweetView.text.length == 0){
+        self.tweetView.textColor = [UIColor lightGrayColor];
+        self.tweetView.text = @"Compose Tweet here";
+        [self.tweetView resignFirstResponder];
+    }
 }
 
 - (void)didReceiveMemoryWarning

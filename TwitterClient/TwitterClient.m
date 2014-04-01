@@ -55,15 +55,29 @@
         NSLog(@"getAuthenticatedUser failed");
     }];
 }
+
 - (AFHTTPRequestOperation *) homeTimelineWithSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
                                              failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure; {
     [self setResponseSerializer:[[MUJSONResponseSerializer alloc] init]];
     [(MUJSONResponseSerializer *)[self responseSerializer] setResponseObjectClass:[Tweet class]];
     return [self GET:@"1.1/statuses/home_timeline.json" parameters:nil success:success failure:failure];
 }
-- (AFHTTPRequestOperation *) tweetWith:(NSString *) text success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+
+- (AFHTTPRequestOperation *) tweetWith:(NSString *)text success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    return [self tweetWith:text replyTo:nil success:success failure:failure];
+}
+
+- (AFHTTPRequestOperation *) tweetWith:(NSString *)text replyTo:(NSNumber *)tweetId success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
     [parameters setObject:text forKey:@"status"];
     return [self POST:@"1.1/statuses/update.json" parameters:parameters success:success failure:failure];
+}
+
+- (AFHTTPRequestOperation *) favorites:(NSNumber *)tweetId success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success {
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
+    [parameters setObject:tweetId forKey:@"id"];
+    return [self POST:@"1.1/favorites/create.json" parameters:parameters success:success failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"favorites failed: %@", error);
+    }];
 }
 @end

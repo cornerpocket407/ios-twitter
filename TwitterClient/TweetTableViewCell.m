@@ -10,6 +10,13 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "Tweet.h"
 #import "MHPrettyDate.h"
+#import "TwitterClient.h"
+#import "TweetBarView.h"
+
+@interface TweetTableViewCell()
+@property (weak, nonatomic) IBOutlet TweetBarView *tweetBarView;
+@property (nonatomic, strong) TwitterClient *client;
+@end
 
 @implementation TweetTableViewCell
 
@@ -26,7 +33,8 @@
 }
 
 - (void)setTweet:(Tweet *)tweet {
-    User *user = tweet.retweetStatus ? tweet.retweetStatus.user : tweet.user;
+    tweet = tweet.retweetStatus ? tweet.retweetStatus : tweet;
+    User *user = tweet.user;
     self.nameLabel.text = user.name;
     self.tweetLabel.text = tweet.text;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -34,5 +42,10 @@
     NSDate *date = [dateFormatter dateFromString:tweet.createdAt];
     self.dateLabel.text = [MHPrettyDate prettyDateFromDate:date withFormat:MHPrettyDateShortRelativeTime];
     [self.profileImage  setImageWithURL:[NSURL URLWithString:user.profileImageUrl]];
+//    [self.replyView setUserInteractionEnabled:YES];
+//    UITapGestureRecognizer *singleTap =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];
+//    [singleTap setNumberOfTapsRequired:1];
+//    [self.replyView addGestureRecognizer:singleTap];
+    self.tweetBarView.tweet = tweet;
 }
 @end

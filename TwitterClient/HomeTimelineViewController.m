@@ -59,7 +59,7 @@ static TweetTableViewCell *cellPrototype;
 }
 
 - (void)onCompose {
-    ComposeViewController *cc = [[ComposeViewController alloc] init];
+    ComposeViewController *cc = [[ComposeViewController alloc] initWithNibName:@"ComposeViewController" bundle:nil];
     cc.delegate = self;
     [self.navigationController pushViewController:cc animated:YES];
 }
@@ -87,7 +87,18 @@ static TweetTableViewCell *cellPrototype;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TweetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetTableViewCell" forIndexPath:indexPath];
     cell.tweet = self.tweets[indexPath.row];
+
+    
+//    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self
+//                                                                                action:@selector(onReply:)];
+//    [cell.imageView addGestureRecognizer:singleTap];
+//    [cell.imageView setMultipleTouchEnabled:YES];
+//    [cell.imageView setUserInteractionEnabled:YES];
     return cell;
+}
+
+- (void)onReply {
+    NSLog(@"Replyyyyyyy");
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

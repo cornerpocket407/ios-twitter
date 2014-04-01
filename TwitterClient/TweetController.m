@@ -39,8 +39,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    Tweet *tweet = self.tweet;
-    User *user = tweet.retweetStatus ? tweet.retweetStatus.user : tweet.user;
+    Tweet *tweet = self.tweet.retweetStatus ? self.tweet.retweetStatus : self.tweet;
+    User *user = tweet.user;
     self.nameLabel.text = user.name;
     self.screenNameLabel.text = user.screenName;
     self.tweetLabel.text = tweet.text;

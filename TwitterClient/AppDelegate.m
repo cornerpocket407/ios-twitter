@@ -10,6 +10,7 @@
 #import "HomeTimelineViewController.h"
 #import "LoginViewController.h"
 #import "TwitterClient.h"
+#import "BlahControllerViewController.h"
 
 @implementation NSURL (dictionaryFromQueryString)
 -(NSDictionary *) dictionaryFromQueryString{
@@ -38,7 +39,9 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 //    LoginViewController *lc = [[LoginViewController alloc] init];
 //    self.navController = [[UINavigationController alloc] initWithRootViewController:lc];
-      HomeTimelineViewController *lc = [[HomeTimelineViewController alloc] init];
+    
+//    BlahControllerViewController *lc = [[BlahControllerViewController alloc] initWithNibName:@"BlahControllerViewController" bundle:nil];
+    HomeTimelineViewController *lc = [[HomeTimelineViewController alloc] init];
       self.navController = [[UINavigationController alloc] initWithRootViewController:lc];
 
     self.navController.navigationBar.barTintColor = [UIColor colorWithRed:0.46f green:0.71f blue:0.90f alpha:1];

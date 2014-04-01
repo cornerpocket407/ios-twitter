@@ -19,7 +19,8 @@
                              @"retweet_count": @"retweetCount",
                              @"retweeted_status": @"retweetStatus",
                              @"favorite_count": @"favoriteCount",
-                             @"media_url":  @"mediaUrl"};
+                             @"media_url":  @"mediaUrl",
+                             @"id":  @"tweetId"};
     }
     return self;
 }

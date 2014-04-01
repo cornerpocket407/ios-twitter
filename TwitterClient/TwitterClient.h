@@ -12,7 +12,7 @@
 + (TwitterClient *) instance;
 - (void) login;
 - (void) signOut;
-- (BOOL)isAuthorized;
+- (BOOL) isAuthorized;
 - (AFHTTPRequestOperation *) getAuthenticatedUser;
 - (AFHTTPRequestOperation *) homeTimelineWithSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 - (AFHTTPRequestOperation *) tweetWith:(NSString *)text success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;

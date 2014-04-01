@@ -19,11 +19,7 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        
-    }
-    return self;
+    return [super initWithFrame:frame];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
@@ -37,7 +33,10 @@
 - (void)setup {
     [[NSBundle mainBundle] loadNibNamed:@"TweetBarView" owner:self options:nil];
     [self addSubview:self.view];
-   
+    [self setupFavoriteView];
+ 
+}
+- (void)setupFavoriteView {
     [self.favoriteView setUserInteractionEnabled:YES];
     UITapGestureRecognizer *favoriteTap =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onFavorite)];
     [favoriteTap setNumberOfTapsRequired:1];
@@ -48,7 +47,8 @@
     NSLog(@"pressed reply");
     [self.delegate replyTweet:self.tweet];
 }
--(void)setTweet:(Tweet *)tweet {
+
+- (void)setTweet:(Tweet *)tweet {
     _tweet = tweet;
     if (tweet.favorited) {
         [self.favoriteView setImage:[UIImage imageNamed: @"favorite_on"]];
@@ -57,13 +57,17 @@
         [self.retweetView setImage:[UIImage imageNamed: @"retweet_on"]];
     }
     if (tweet.repliedTweetId == [NSNull null]) {
-        [self.replyView setUserInteractionEnabled:YES];
-        UITapGestureRecognizer *replyTap =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onReply)];
-        [replyTap setNumberOfTapsRequired:1];
-        [self.replyView addGestureRecognizer:replyTap];
+        [self setupReplyView];
     } else {
         [self.replyView setHidden:YES];
     }
+}
+
+- (void)setupReplyView {
+    [self.replyView setUserInteractionEnabled:YES];
+    UITapGestureRecognizer *replyTap =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onReply)];
+    [replyTap setNumberOfTapsRequired:1];
+    [self.replyView addGestureRecognizer:replyTap];
 }
 
 - (void)onFavorite {

@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "MUJSONResponseSerializer.h"
 #import "User.h"
-#import "RetweetStatus.h"
 
 @interface Tweet : MUJSONResponseObject
 @property (nonatomic, strong) NSString *createdAt;

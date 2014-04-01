@@ -60,11 +60,6 @@
     self.tweetBarView.delegate = self;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 - (void)replyTweet:(Tweet *)tweet {
     ComposeViewController *cc = [[ComposeViewController alloc] initWithTweetToReply:self.tweet];
     cc.delegate = self;
@@ -74,6 +69,11 @@
 - (void)refreshHomeTimeline {
     [self.navigationController popViewControllerAnimated:NO];
     [self.delegate refreshHomeTimeline];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
 }
 
 @end

@@ -14,7 +14,7 @@
 {
     if(self = [super init])
     {
-        // There is no need to map all properties, only those which you want to have diffrent names;
+        // Mapping properties that you want to have diffrent names;
         self.propertyMap = @{@"created_at": @"createdAt",
                              @"retweet_count": @"retweetCount",
                              @"retweeted_status": @"retweetStatus",

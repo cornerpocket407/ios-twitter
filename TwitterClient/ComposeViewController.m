@@ -48,20 +48,21 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [self fetchUserInfo];
     
-    //TOIMPORVE: Try to use this reusable view latr
-    //ComposeHeaderViewCell *view = [[ComposeHeaderViewCell alloc] init];
+    //  TOIMPORVE: Try to use this reusable view latr
+    //  ComposeHeaderViewCell *view = [[ComposeHeaderViewCell alloc] init];
     
-    //sets up views
+    //  sets up views
     self.nameLabel.text = [defaults objectForKey:@"name"];
     self.screenNameLabel.text = [defaults objectForKey:@"screenName"];
     [self.profileImage setImageWithURL:[NSURL URLWithString:[defaults objectForKey:@"profileImageUrl"]]];
     
-    //creates Tweet Button
+    //  creates Tweet Button
     UIBarButtonItem *tweetBtn = [[UIBarButtonItem alloc] initWithTitle:@"Tweet" style:UIBarButtonItemStyleBordered target:self action:@selector(onTweet)];
+    tweetBtn.tintColor = [UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = tweetBtn;
 }
 
-//Places a placeholder text in the text view (IOS has no native support for this) http://stackoverflow.com/questions/1328638/placeholder-in-uitextview#answer-10201671
+//  Places a placeholder text in the text view (IOS has no native support for this) http://stackoverflow.com/questions/1328638/placeholder-in-uitextview#answer-10201671
 - (void) initPlaceholderText {
     if (self.replyTweet) {
         self.tweetView.text = [NSString stringWithFormat:@"Compose Tweet here for @%@", self.replyTweet.user.screenName];
@@ -72,7 +73,7 @@
     self.tweetView.delegate = self;
 }
 
-//TOIMPROVE: More elegant solution later
+//  TOIMPROVE: More elegant solution later
 - (void) fetchUserInfo {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *name = [defaults objectForKey:@"name"];
@@ -121,7 +122,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

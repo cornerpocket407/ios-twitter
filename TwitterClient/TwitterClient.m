@@ -16,6 +16,7 @@
 }
 @end
 @implementation TwitterClient
+
 #pragma public methods
 + (TwitterClient *)instance {
     static TwitterClient *client = nil;
@@ -28,6 +29,7 @@
     });
     return client;
 }
+
 - (void)login {
     [self.requestSerializer removeAccessToken];
     [self fetchRequestTokenWithPath:@"oauth/request_token" method:@"POST" callbackURL:[NSURL URLWithString:@"tdaotwitter://oauth"] scope:nil success:^(BDBOAuthToken *requestToken) {
@@ -38,12 +40,15 @@
         NSLog(@"login failed: %@", error);
     }];
 }
-- (void) signOut {
+
+- (void)signOut {
     [self.requestSerializer removeAccessToken];
 }
+
 - (BOOL)isAuthorized {
     return (self.requestSerializer.accessToken && !self.requestSerializer.accessToken.expired);
 }
+
 - (AFHTTPRequestOperation *) getAuthenticatedUser {
     [self setResponseSerializer:[[MUJSONResponseSerializer alloc] init]];
     [(MUJSONResponseSerializer *)[self responseSerializer] setResponseObjectClass:[User class]];

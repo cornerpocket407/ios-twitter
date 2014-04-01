@@ -17,6 +17,6 @@
 
 @interface TweetController : UIViewController <TweetBarViewDelegate, ComposeViewControllerDelegate>
 @property (nonatomic, strong) Tweet *tweet;
-- (id)initWithTweet:(Tweet *)tweet;
 @property (nonatomic, weak) id <TweetControllerRefreshTimelineDelegate> delegate;
+- (id)initWithTweet:(Tweet *)tweet;
 @end

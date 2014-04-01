@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "User.h"
 
+//  TOIMPROVE: This class is not being used right now. Should use/reuse this nib whenever applicable
 @interface ComposeHeaderViewCell : UIView
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *screenName;

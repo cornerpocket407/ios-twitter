@@ -106,10 +106,6 @@ static TweetTableViewCell *cellPrototype;
     return cell;
 }
 
-- (void)onReply {
-    NSLog(@"Replyyyyyyy");
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     Tweet *tweet = self.tweets[indexPath.row];
     CGFloat tweetLabelHeight = [self sizeOfLabel:cellPrototype.tweetLabel font:[UIFont systemFontOfSize:10.0] withText:tweet.text].height;
@@ -120,14 +116,13 @@ static TweetTableViewCell *cellPrototype;
     float imageHeight = 60;
     float tweetBarHeight = 16;
     return vertPadding + MAX(imageHeight, nameTweetHeight +spacing + tweetBarHeight);
-//    return 400.0f;
 }
 
 - (CGSize)sizeOfLabel:(UILabel *)label font:(UIFont *)font withText:(NSString *)text {
     return [text boundingRectWithSize:CGSizeMake(label.frame.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: font} context: nil].size;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Tweet *tweet = self.tweets[indexPath.row];
     TweetController *tc = [[TweetController alloc] initWithTweet:tweet];
     tc.delegate = self;

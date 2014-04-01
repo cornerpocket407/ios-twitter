@@ -27,8 +27,6 @@
 		6D8C823E18E7585F001D8CA2 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C823D18E7585F001D8CA2 /* Tweet.m */; };
 		6D8C824418E7BFB9001D8CA2 /* NSObject+logProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C824318E7BFB9001D8CA2 /* NSObject+logProperties.m */; };
 		6D8C824718E7C1CB001D8CA2 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C824618E7C1CB001D8CA2 /* User.m */; };
-		6D8C824A18E7C386001D8CA2 /* Entities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C824918E7C386001D8CA2 /* Entities.m */; };
-		6D8C824D18E7C3AA001D8CA2 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C824C18E7C3AA001D8CA2 /* Media.m */; };
 		6D8C825218E7C5E7001D8CA2 /* TweetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C825018E7C5E7001D8CA2 /* TweetTableViewCell.m */; };
 		6D8C825318E7C5E7001D8CA2 /* TweetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D8C825118E7C5E7001D8CA2 /* TweetTableViewCell.xib */; };
 		6D8C825718E8DD68001D8CA2 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C825518E8DD68001D8CA2 /* ComposeViewController.m */; };
@@ -37,7 +35,6 @@
 		6D8C825D18E8EAE4001D8CA2 /* ComposeHeaderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D8C825B18E8EAE4001D8CA2 /* ComposeHeaderViewCell.xib */; };
 		6D8C826118E939E3001D8CA2 /* TweetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C825F18E939E3001D8CA2 /* TweetController.m */; };
 		6D8C826218E939E3001D8CA2 /* TweetController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D8C826018E939E3001D8CA2 /* TweetController.xib */; };
-		6D8C826518E9415F001D8CA2 /* RetweetStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C826418E9415F001D8CA2 /* RetweetStatus.m */; };
 		6D8C828518E96C16001D8CA2 /* TweetBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D8C828418E96C16001D8CA2 /* TweetBarView.xib */; };
 		6D8C828818E96C4E001D8CA2 /* TweetBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C828718E96C4E001D8CA2 /* TweetBarView.m */; };
 		F2C214674EB3473088CF58AE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94D4FCC5B92B4A1FA4FCBA83 /* libPods.a */; };
@@ -85,10 +82,6 @@
 		6D8C824318E7BFB9001D8CA2 /* NSObject+logProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+logProperties.m"; sourceTree = "<group>"; };
 		6D8C824518E7C1CB001D8CA2 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		6D8C824618E7C1CB001D8CA2 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		6D8C824818E7C386001D8CA2 /* Entities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entities.h; sourceTree = "<group>"; };
-		6D8C824918E7C386001D8CA2 /* Entities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entities.m; sourceTree = "<group>"; };
-		6D8C824B18E7C3AA001D8CA2 /* Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Media.h; sourceTree = "<group>"; };
-		6D8C824C18E7C3AA001D8CA2 /* Media.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Media.m; sourceTree = "<group>"; };
 		6D8C824F18E7C5E7001D8CA2 /* TweetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetTableViewCell.h; sourceTree = "<group>"; };
 		6D8C825018E7C5E7001D8CA2 /* TweetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetTableViewCell.m; sourceTree = "<group>"; };
 		6D8C825118E7C5E7001D8CA2 /* TweetTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetTableViewCell.xib; sourceTree = "<group>"; };
@@ -101,8 +94,6 @@
 		6D8C825E18E939E3001D8CA2 /* TweetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetController.h; sourceTree = "<group>"; };
 		6D8C825F18E939E3001D8CA2 /* TweetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetController.m; sourceTree = "<group>"; };
 		6D8C826018E939E3001D8CA2 /* TweetController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetController.xib; sourceTree = "<group>"; };
-		6D8C826318E9415F001D8CA2 /* RetweetStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RetweetStatus.h; sourceTree = "<group>"; };
-		6D8C826418E9415F001D8CA2 /* RetweetStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RetweetStatus.m; sourceTree = "<group>"; };
 		6D8C828418E96C16001D8CA2 /* TweetBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetBarView.xib; sourceTree = "<group>"; };
 		6D8C828618E96C4E001D8CA2 /* TweetBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetBarView.h; sourceTree = "<group>"; };
 		6D8C828718E96C4E001D8CA2 /* TweetBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetBarView.m; sourceTree = "<group>"; };
@@ -247,12 +238,6 @@
 				6D8C824318E7BFB9001D8CA2 /* NSObject+logProperties.m */,
 				6D8C824518E7C1CB001D8CA2 /* User.h */,
 				6D8C824618E7C1CB001D8CA2 /* User.m */,
-				6D8C824818E7C386001D8CA2 /* Entities.h */,
-				6D8C824918E7C386001D8CA2 /* Entities.m */,
-				6D8C824B18E7C3AA001D8CA2 /* Media.h */,
-				6D8C824C18E7C3AA001D8CA2 /* Media.m */,
-				6D8C826318E9415F001D8CA2 /* RetweetStatus.h */,
-				6D8C826418E9415F001D8CA2 /* RetweetStatus.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -420,11 +405,8 @@
 				6D8C828818E96C4E001D8CA2 /* TweetBarView.m in Sources */,
 				6D8C822F18E68921001D8CA2 /* TwitterClient.m in Sources */,
 				6D8C825C18E8EAE4001D8CA2 /* ComposeHeaderViewCell.m in Sources */,
-				6D8C824A18E7C386001D8CA2 /* Entities.m in Sources */,
 				6D8C820A18E688CF001D8CA2 /* main.m in Sources */,
 				6D8C825718E8DD68001D8CA2 /* ComposeViewController.m in Sources */,
-				6D8C824D18E7C3AA001D8CA2 /* Media.m in Sources */,
-				6D8C826518E9415F001D8CA2 /* RetweetStatus.m in Sources */,
 				6D8C825218E7C5E7001D8CA2 /* TweetTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

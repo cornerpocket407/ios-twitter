@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+//  This creates a category for logging properties in a class for logging purposes.
+//  Found it here: http://stackoverflow.com/questions/13922581/is-there-a-way-to-log-all-the-property-values-of-an-objective-c-instance#answer-13922682
 
 @interface NSObject (logProperties)
 - (void) logProperties;

@@ -87,13 +87,6 @@ static TweetTableViewCell *cellPrototype;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TweetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetTableViewCell" forIndexPath:indexPath];
     cell.tweet = self.tweets[indexPath.row];
-
-    
-//    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self
-//                                                                                action:@selector(onReply:)];
-//    [cell.imageView addGestureRecognizer:singleTap];
-//    [cell.imageView setMultipleTouchEnabled:YES];
-//    [cell.imageView setUserInteractionEnabled:YES];
     return cell;
 }
 
@@ -103,7 +96,7 @@ static TweetTableViewCell *cellPrototype;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     Tweet *tweet = self.tweets[indexPath.row];
-    CGFloat tweetLabelHeight = [self sizeOfLabel:cellPrototype.tweetLabel font:[UIFont systemFontOfSize:14.0] withText:tweet.text].height;
+    CGFloat tweetLabelHeight = [self sizeOfLabel:cellPrototype.tweetLabel font:[UIFont systemFontOfSize:11.0] withText:tweet.text].height;
     float spacing = 5;
     float nameLabelHeight = 15;
     float nameTweetHeight = nameLabelHeight + spacing + tweetLabelHeight;
@@ -118,6 +111,12 @@ static TweetTableViewCell *cellPrototype;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    UITableViewCell *cell =
+//    [tableView dequeueReusableCellWithIdentifier:@"TweetTableViewCell"
+//                                    forIndexPath:indexPath];
+//    UIView* v1 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 400)];
+//    v1.backgroundColor = [UIColor colorWithRed:1 green:.4 blue:1 alpha:1];
+//    [cell.contentView addSubview:v1];
     Tweet *tweet = self.tweets[indexPath.row];
     TweetController *tc = [[TweetController alloc] initWithTweet:tweet];
     [self.navigationController pushViewController:tc animated:YES];

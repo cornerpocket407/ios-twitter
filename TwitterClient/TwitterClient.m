@@ -80,4 +80,12 @@
         NSLog(@"favorites failed: %@", error);
     }];
 }
+
+- (AFHTTPRequestOperation *) unFavorites:(NSNumber *)tweetId success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success {
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
+    [parameters setObject:tweetId forKey:@"id"];
+    return [self POST:@"1.1/favorites/destroy.json" parameters:parameters success:success failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"favorites failed: %@", error);
+    }];
+}
 @end

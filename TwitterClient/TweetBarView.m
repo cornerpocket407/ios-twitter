@@ -37,6 +37,7 @@
     [[NSBundle mainBundle] loadNibNamed:@"TweetBarView" owner:self options:nil];
     [self addSubview:self.view];
     
+//    [self.replyTextView setHidden:YES];
     [self.replyView setUserInteractionEnabled:YES];
     UITapGestureRecognizer *replyTap =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onReply)];
     [replyTap setNumberOfTapsRequired:1];
@@ -50,6 +51,10 @@
 
 }
 
+- (void)onReply {
+    NSLog(@"on reply");
+//    [self.replyTextView setHidden:NO];
+}
 -(void)setTweet:(Tweet *)tweet {
     _tweet = tweet;
     if (self.tweet.favorited) {
@@ -61,9 +66,14 @@
 }
 
 - (void)onFavorite {
-    if (!self.tweet.favorited) {
+    if (self.tweet.favorited) {
+        [[TwitterClient instance] unFavorites:self.tweet.tweetId success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            self.tweet.favorited = FALSE;
+            [self.favoriteView setImage:[UIImage imageNamed: @"favorite"]];
+        }];
+    } else {
         [[TwitterClient instance] favorites:self.tweet.tweetId success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSLog(@"Favorite succeeded");
+            self.tweet.favorited = TRUE;
             [self.favoriteView setImage:[UIImage imageNamed: @"favorite_on"]];
         }];
     }

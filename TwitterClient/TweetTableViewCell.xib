@@ -50,16 +50,16 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="224" id="EUz-d5-Ecv"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tqD-nS-363" customClass="TweetBarView">
+                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tqD-nS-363" customClass="TweetBarView">
                         <rect key="frame" x="81" y="56" width="68" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.39495213172701515" green="0.23361013152335131" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="Vqj-5Q-HUk"/>
-                            <constraint firstAttribute="width" constant="68" id="eKm-2q-3Eq"/>
+                            <constraint firstAttribute="width" constant="224" id="eKm-2q-3Eq"/>
                         </constraints>
                     </view>
                 </subviews>

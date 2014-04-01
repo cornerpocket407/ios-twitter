@@ -8,6 +8,7 @@
 
 #import "TweetBarView.h"
 #import "TwitterClient.h"
+#import "ComposeViewController.h"
 
 @interface TweetBarView()
 @property (weak, nonatomic) IBOutlet UIImageView *replyView;
@@ -52,8 +53,15 @@
 }
 
 - (void)onReply {
-    NSLog(@"on reply");
-//    [self.replyTextView setHidden:NO];
+    
+//    TweetComposeViewController *tweetComposeViewController = [[TweetComposeViewController alloc] initWithTweetModel:tweetModel];
+//	tweetComposeViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+//	tweetComposeViewController.delegate = self;
+//	
+//	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:tweetComposeViewController];
+//	[self.navigationController presentViewController:navController animated:YES completion:nil];
+    NSLog(@"pressed reply");
+    [self.delegate replyTweet:self.tweet];
 }
 -(void)setTweet:(Tweet *)tweet {
     _tweet = tweet;

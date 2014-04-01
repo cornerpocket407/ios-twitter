@@ -66,20 +66,18 @@ static TweetTableViewCell *cellPrototype;
 }
 
 - (void)onCompose {
-    ComposeViewController *cc = [[ComposeViewController alloc] initWithNibName:@"ComposeViewController" bundle:nil];
+    [self onComposeTo:nil];
+}
+
+- (void)onComposeTo:(Tweet *)replyTo {
+    ComposeViewController *cc = [[ComposeViewController alloc] initWithTweetToReply:replyTo];
     cc.delegate = self;
     [self.navigationController pushViewController:cc animated:YES];
 }
 
 - (void)loadHomeTimeline {
     [self.client homeTimelineWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"hometimeline success! response:%@", responseObject);
         self.tweets = responseObject;
-// TODO: for logging. remove this.
-//        for (Tweet *result in self.tweets) {
-//            [result logProperties];
-//            [result.user logProperties];
-//        }
         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"hometimeline failed! error:%@", error);
@@ -93,6 +91,7 @@ static TweetTableViewCell *cellPrototype;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TweetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetTableViewCell" forIndexPath:indexPath];
+    cell.delegate = self;
     cell.tweet = self.tweets[indexPath.row];
     return cell;
 }
@@ -119,12 +118,6 @@ static TweetTableViewCell *cellPrototype;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UITableViewCell *cell =
-//    [tableView dequeueReusableCellWithIdentifier:@"TweetTableViewCell"
-//                                    forIndexPath:indexPath];
-//    UIView* v1 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 400)];
-//    v1.backgroundColor = [UIColor colorWithRed:1 green:.4 blue:1 alpha:1];
-//    [cell.contentView addSubview:v1];
     Tweet *tweet = self.tweets[indexPath.row];
     TweetController *tc = [[TweetController alloc] initWithTweet:tweet];
     [self.navigationController pushViewController:tc animated:YES];
@@ -132,5 +125,9 @@ static TweetTableViewCell *cellPrototype;
 #pragma ComposeViewControllerDelegate
 - (void)refreshHomeTimeline {
     [self loadHomeTimeline];
+}
+#pragma TweetTableViewReplyDelegate
+- (void)replyTweet:(Tweet *)tweet {
+    [self onComposeTo:tweet];
 }
 @end

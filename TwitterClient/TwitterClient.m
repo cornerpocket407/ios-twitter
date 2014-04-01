@@ -67,12 +67,16 @@
 }
 
 - (AFHTTPRequestOperation *) tweetWith:(NSString *)text success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    NSLog(@"in client tweetWith");
     return [self tweetWith:text replyTo:nil success:success failure:failure];
 }
 
 - (AFHTTPRequestOperation *) tweetWith:(NSString *)text replyTo:(NSNumber *)tweetId success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
     [parameters setObject:text forKey:@"status"];
+    if (tweetId) {
+        [parameters setObject:tweetId forKey:@"in_reply_to_status_id"];
+    }
     return [self POST:@"1.1/statuses/update.json" parameters:parameters success:success failure:failure];
 }
 

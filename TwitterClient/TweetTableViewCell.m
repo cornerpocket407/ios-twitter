@@ -48,5 +48,10 @@
 //    [singleTap setNumberOfTapsRequired:1];
 //    [self.replyView addGestureRecognizer:singleTap];
     self.tweetBarView.tweet = tweet;
+    self.tweetBarView.delegate = self;
+}
+
+- (void)replyTweet:(Tweet *)tweet {
+    [self.delegate replyTweet:tweet];
 }
 @end

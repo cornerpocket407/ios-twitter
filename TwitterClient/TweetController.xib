@@ -12,6 +12,7 @@
                 <outlet property="retweetLabel" destination="XVC-HB-hWt" id="jc8-hP-avx"/>
                 <outlet property="screenNameLabel" destination="5mF-XM-bSA" id="pRo-x9-ktM"/>
                 <outlet property="timestampLabel" destination="IDQ-GL-eat" id="HSe-kk-zNP"/>
+                <outlet property="tweetBarView" destination="cYT-pI-Lms" id="nYn-1q-Q5P"/>
                 <outlet property="tweetLabel" destination="e7u-Jv-J9b" id="Siw-dK-Bvv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

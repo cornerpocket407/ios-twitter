@@ -10,6 +10,7 @@
 #import "TwitterClient.h"
 #import "ComposeHeaderViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "Tweet.h"
 
 @interface ComposeViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *tweetView;
@@ -17,9 +18,18 @@
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *screenNameLabel;
+@property (nonatomic, strong) Tweet *replyTweet;
 @end
 
 @implementation ComposeViewController
+
+- (id)initWithTweetToReply:(Tweet *)tweet {
+    self = [self initWithNibName:@"ComposeViewController" bundle:nil];
+    if (self) {
+        self.replyTweet = tweet;
+    }
+    return self;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,12 +43,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
-    self.tweetView.text = @"Compose Tweet Here";
+
+    if (self.replyTweet) {
+        self.tweetView.text = [NSString stringWithFormat:@"Compose Tweet here for @%@", self.replyTweet.user.screenName];
+    } else {
+        self.tweetView.text = @"Compose Tweet here";
+    }
     self.tweetView.textColor = [UIColor lightGrayColor];
     self.tweetView.delegate = self;
-    
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *name = [defaults objectForKey:@"name"];
@@ -55,8 +67,8 @@
 }
 
 - (void)onTweet {
-    [self.client tweetWith:self.tweetView.text success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"tweet succeed");
+    [self.client tweetWith:self.tweetView.text replyTo:self.replyTweet.tweetId success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"tweet succeed %@", operation);
         [self.navigationController popViewControllerAnimated:YES];
         [self.delegate refreshHomeTimeline];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -67,7 +79,11 @@
 
 - (BOOL) textViewShouldBeginEditing:(UITextView *)textView
 {
-    self.tweetView.text = @"";
+    if (self.replyTweet) {
+        self.tweetView.text = [NSString stringWithFormat:@"@%@ ", self.replyTweet.user.screenName];
+    } else {
+         self.tweetView.text = @"";
+    }
     self.tweetView.textColor = [UIColor blackColor];
     return YES;
 }
@@ -77,7 +93,11 @@
     
     if(self.tweetView.text.length == 0){
         self.tweetView.textColor = [UIColor lightGrayColor];
-        self.tweetView.text = @"Compose Tweet here";
+        if (self.replyTweet) {
+            self.tweetView.text = [NSString stringWithFormat:@"Compose Tweet here for @%@", self.replyTweet.user.screenName];
+        } else {
+            self.tweetView.text = @"Compose Tweet here";
+        }
         [self.tweetView resignFirstResponder];
     }
 }

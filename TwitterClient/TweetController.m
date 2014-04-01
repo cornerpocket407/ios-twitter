@@ -7,6 +7,7 @@
 //
 
 #import "TweetController.h"
+#import "TweetBarView.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @interface TweetController ()
@@ -17,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
 @property (weak, nonatomic) IBOutlet UILabel *retweetLabel;
 @property (weak, nonatomic) IBOutlet UILabel *favoritesLabel;
+@property (weak, nonatomic) IBOutlet TweetBarView *tweetBarView;
 @end
 
 @implementation TweetController
@@ -49,6 +51,7 @@
     self.retweetLabel.text = [NSString stringWithFormat:@"%d RETWEETS", tweet.retweetCount];
     self.favoritesLabel.text = [NSString stringWithFormat:@"%d FAVORITES", tweet.favoriteCount];
     [self.profileImage setImageWithURL:[NSURL URLWithString:user.profileImageUrl]];
+    self.tweetBarView.tweet = tweet;
 }
 
 - (void)didReceiveMemoryWarning

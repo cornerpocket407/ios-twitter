@@ -8,7 +8,6 @@
 
 #import "HomeTimelineViewController.h"
 #import "TwitterClient.h"
-#import "HomeTimelineResult.h"
 #import "NSObject+logProperties.h"
 #import "TweetTableViewCell.h"
 #import "Tweet.h"

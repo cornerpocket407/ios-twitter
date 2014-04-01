@@ -25,7 +25,6 @@
 		6D8C823918E6BFEF001D8CA2 /* HomeTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C823718E6BFEF001D8CA2 /* HomeTimelineViewController.m */; };
 		6D8C823A18E6BFEF001D8CA2 /* HomeTimelineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D8C823818E6BFEF001D8CA2 /* HomeTimelineViewController.xib */; };
 		6D8C823E18E7585F001D8CA2 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C823D18E7585F001D8CA2 /* Tweet.m */; };
-		6D8C824118E758DC001D8CA2 /* HomeTimelineResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C824018E758DC001D8CA2 /* HomeTimelineResult.m */; };
 		6D8C824418E7BFB9001D8CA2 /* NSObject+logProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C824318E7BFB9001D8CA2 /* NSObject+logProperties.m */; };
 		6D8C824718E7C1CB001D8CA2 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C824618E7C1CB001D8CA2 /* User.m */; };
 		6D8C824A18E7C386001D8CA2 /* Entities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C824918E7C386001D8CA2 /* Entities.m */; };
@@ -82,8 +81,6 @@
 		6D8C823818E6BFEF001D8CA2 /* HomeTimelineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeTimelineViewController.xib; sourceTree = "<group>"; };
 		6D8C823C18E7585F001D8CA2 /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
 		6D8C823D18E7585F001D8CA2 /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
-		6D8C823F18E758DC001D8CA2 /* HomeTimelineResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTimelineResult.h; sourceTree = "<group>"; };
-		6D8C824018E758DC001D8CA2 /* HomeTimelineResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTimelineResult.m; sourceTree = "<group>"; };
 		6D8C824218E7BFB9001D8CA2 /* NSObject+logProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+logProperties.h"; sourceTree = "<group>"; };
 		6D8C824318E7BFB9001D8CA2 /* NSObject+logProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+logProperties.m"; sourceTree = "<group>"; };
 		6D8C824518E7C1CB001D8CA2 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -246,8 +243,6 @@
 			children = (
 				6D8C823C18E7585F001D8CA2 /* Tweet.h */,
 				6D8C823D18E7585F001D8CA2 /* Tweet.m */,
-				6D8C823F18E758DC001D8CA2 /* HomeTimelineResult.h */,
-				6D8C824018E758DC001D8CA2 /* HomeTimelineResult.m */,
 				6D8C824218E7BFB9001D8CA2 /* NSObject+logProperties.h */,
 				6D8C824318E7BFB9001D8CA2 /* NSObject+logProperties.m */,
 				6D8C824518E7C1CB001D8CA2 /* User.h */,
@@ -418,7 +413,6 @@
 				6D8C823418E6967F001D8CA2 /* LoginViewController.m in Sources */,
 				6D8C820E18E688D0001D8CA2 /* AppDelegate.m in Sources */,
 				6D8C824718E7C1CB001D8CA2 /* User.m in Sources */,
-				6D8C824118E758DC001D8CA2 /* HomeTimelineResult.m in Sources */,
 				6D8C826118E939E3001D8CA2 /* TweetController.m in Sources */,
 				6D8C823918E6BFEF001D8CA2 /* HomeTimelineViewController.m in Sources */,
 				6D8C823E18E7585F001D8CA2 /* Tweet.m in Sources */,

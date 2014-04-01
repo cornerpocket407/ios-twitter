@@ -8,8 +8,8 @@
 
 #import "TwitterClient.h"
 #import "MUJSONResponseSerializer.h"
-#import "HomeTimelineResult.h"
 #import "User.h"
+#import "Tweet.h"
 
 @interface TwitterClient(){
 

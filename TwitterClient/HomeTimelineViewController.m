@@ -39,7 +39,6 @@ static TweetTableViewCell *cellPrototype;
     [self setupUI];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.rowHeight = 100;
     UINib *tweetCellNib = [UINib nibWithNibName:@"TweetTableViewCell" bundle:nil];
     [self.tableView registerNib:tweetCellNib forCellReuseIdentifier:@"TweetTableViewCell"];
     cellPrototype = [self.tableView dequeueReusableCellWithIdentifier:@"TweetTableViewCell"];
@@ -56,6 +55,14 @@ static TweetTableViewCell *cellPrototype;
     UIBarButtonItem *newBtn = [[UIBarButtonItem alloc] initWithTitle:@"New" style:UIBarButtonItemStyleBordered target:self action: @selector(onCompose)];
     newBtn.tintColor = [UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = newBtn;
+    
+    UIBarButtonItem *signOutBtn = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStyleBordered target:self action: @selector(onSignOut)];
+    signOutBtn.tintColor = [UIColor whiteColor];
+    self.navigationItem.leftBarButtonItem = signOutBtn;
+}
+
+- (void)onSignOUt {
+    
 }
 
 - (void)onCompose {
@@ -96,14 +103,15 @@ static TweetTableViewCell *cellPrototype;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     Tweet *tweet = self.tweets[indexPath.row];
-    CGFloat tweetLabelHeight = [self sizeOfLabel:cellPrototype.tweetLabel font:[UIFont systemFontOfSize:11.0] withText:tweet.text].height;
-    float spacing = 5;
+    CGFloat tweetLabelHeight = [self sizeOfLabel:cellPrototype.tweetLabel font:[UIFont systemFontOfSize:10.0] withText:tweet.text].height;
+    float spacing = 10;
     float nameLabelHeight = 15;
     float nameTweetHeight = nameLabelHeight + spacing + tweetLabelHeight;
-    float topPadding = 10;
+    float vertPadding = 20;
     float imageHeight = 60;
-    float tweetBarHeight = 21;
-    return topPadding + MAX(imageHeight, nameTweetHeight) + 10 + tweetBarHeight + spacing;
+    float tweetBarHeight = 16;
+    return vertPadding + MAX(imageHeight, nameTweetHeight +spacing + tweetBarHeight);
+//    return 400.0f;
 }
 
 - (CGSize)sizeOfLabel:(UILabel *)label font:(UIFont *)font withText:(NSString *)text {

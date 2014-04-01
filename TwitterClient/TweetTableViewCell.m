@@ -36,6 +36,7 @@
     tweet = tweet.retweetStatus ? tweet.retweetStatus : tweet;
     User *user = tweet.user;
     self.nameLabel.text = user.name;
+    self.screenNameLabel.text = [NSString stringWithFormat:@"@%@", user.screenName];
     self.tweetLabel.text = tweet.text;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"eee MMM dd HH:mm:ss ZZZZ yyyy"];

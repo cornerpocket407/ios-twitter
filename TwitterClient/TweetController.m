@@ -10,6 +10,7 @@
 #import "TweetBarView.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "ComposeViewController.h"
+#import "MHPrettyDate.h"
 
 @interface TweetController ()
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
@@ -47,7 +48,10 @@
     self.nameLabel.text = user.name;
     self.screenNameLabel.text = user.screenName;
     self.tweetLabel.text = tweet.text;
-    self.timestampLabel.text = tweet.retweetStatus ? tweet.retweetStatus.createdAt : tweet.createdAt;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"eee MMM dd HH:mm:ss ZZZZ yyyy"];
+    NSDate *date = [dateFormatter dateFromString:tweet.createdAt];
+    self.timestampLabel.text = [MHPrettyDate prettyDateFromDate:date withFormat:MHPrettyDateFormatWithTime];
     self.tweet.text = tweet.text;
     self.retweetLabel.text = [NSString stringWithFormat:@"%d RETWEETS", tweet.retweetCount];
     self.favoritesLabel.text = [NSString stringWithFormat:@"%d FAVORITES", tweet.favoriteCount];

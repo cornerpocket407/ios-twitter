@@ -42,12 +42,21 @@ static TweetTableViewCell *cellPrototype;
     [self.tableView registerNib:tweetCellNib forCellReuseIdentifier:@"TweetTableViewCell"];
     cellPrototype = [self.tableView dequeueReusableCellWithIdentifier:@"TweetTableViewCell"];
     [self loadHomeTimeline];
+    
+    //sets up refresh control
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:refreshControl];
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)refresh:(UIRefreshControl *)refreshControl {
+    [self loadHomeTimeline];
+    [refreshControl endRefreshing];
 }
 
 - (void)setupUI {

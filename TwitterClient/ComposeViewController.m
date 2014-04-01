@@ -43,7 +43,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //Places a placeholder text in the text view (IOS has no native support for this) http://stackoverflow.com/questions/1328638/placeholder-in-uitextview#answer-10201671
+    [self initPlaceholderText];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [self fetchUserInfo];
+    
+    //TOIMPORVE: Try to use this reusable view latr
+    //ComposeHeaderViewCell *view = [[ComposeHeaderViewCell alloc] init];
+    
+    //sets up views
+    self.nameLabel.text = [defaults objectForKey:@"name"];
+    self.screenNameLabel.text = [defaults objectForKey:@"screenName"];
+    [self.profileImage setImageWithURL:[NSURL URLWithString:[defaults objectForKey:@"profileImageUrl"]]];
+    
+    //creates Tweet Button
+    UIBarButtonItem *tweetBtn = [[UIBarButtonItem alloc] initWithTitle:@"Tweet" style:UIBarButtonItemStyleBordered target:self action:@selector(onTweet)];
+    self.navigationItem.rightBarButtonItem = tweetBtn;
+}
 
+- (void) initPlaceholderText {
     if (self.replyTweet) {
         self.tweetView.text = [NSString stringWithFormat:@"Compose Tweet here for @%@", self.replyTweet.user.screenName];
     } else {
@@ -51,19 +70,15 @@
     }
     self.tweetView.textColor = [UIColor lightGrayColor];
     self.tweetView.delegate = self;
-    
+}
+
+//TOIMPROVE: More elegant solution later
+- (void) fetchUserInfo {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *name = [defaults objectForKey:@"name"];
     if (!name) {
         [self.client getAuthenticatedUser];
     }
-    // Create a view
-    ComposeHeaderViewCell *view = [[ComposeHeaderViewCell alloc] init];
-    self.nameLabel.text = [defaults objectForKey:@"name"];
-    self.screenNameLabel.text = [defaults objectForKey:@"screenName"];
-    [self.profileImage setImageWithURL:[NSURL URLWithString:[defaults objectForKey:@"profileImageUrl"]]];
-    UIBarButtonItem *tweetBtn = [[UIBarButtonItem alloc] initWithTitle:@"Tweet" style:UIBarButtonItemStyleBordered target:self action:@selector(onTweet)];
-    self.navigationItem.rightBarButtonItem = tweetBtn;
 }
 
 - (void)onTweet {
@@ -77,6 +92,7 @@
 
 }
 
+// Part of the workaround for getting placeholder text in textview
 - (BOOL) textViewShouldBeginEditing:(UITextView *)textView
 {
     if (self.replyTweet) {
@@ -88,9 +104,9 @@
     return YES;
 }
 
+// Part of the workaround for getting placeholder text in textview
 -(void) textViewDidChange:(UITextView *)textView
 {
-    
     if(self.tweetView.text.length == 0){
         self.tweetView.textColor = [UIColor lightGrayColor];
         if (self.replyTweet) {

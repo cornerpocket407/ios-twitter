@@ -152,11 +152,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterClient/TweetTableViewCell.m"
-            timestampString = "418069544.986639"
+            timestampString = "418084554.712344"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "-setTweet:"
             landmarkType = "5">
          </BreakpointContent>
@@ -344,27 +344,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterClient/TweetTableViewCell.m"
-            timestampString = "418076553.607488"
+            timestampString = "418084554.712344"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "-setTweet:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TwitterClient/TweetTableViewCell.m"
-            timestampString = "418071908.526056"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "-setTweet:"
             landmarkType = "5">
          </BreakpointContent>
@@ -408,11 +392,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterClient/TweetTableViewCell.m"
-            timestampString = "418076601.141112"
+            timestampString = "418084554.712344"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "-replyTweet:"
             landmarkType = "5">
          </BreakpointContent>
@@ -472,11 +456,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterClient/ComposeViewController.m"
-            timestampString = "418079795.559642"
+            timestampString = "418084398.204471"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "-onTweet"
             landmarkType = "5">
          </BreakpointContent>
@@ -504,11 +488,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterClient/ComposeViewController.m"
-            timestampString = "418079795.559642"
+            timestampString = "418084398.204471"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "-onTweet"
             landmarkType = "5">
             <Locations>
@@ -566,11 +550,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterClient/ComposeViewController.m"
-            timestampString = "418079795.559642"
+            timestampString = "418084398.204471"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "-onTweet"
             landmarkType = "5">
          </BreakpointContent>
@@ -582,11 +566,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterClient/ComposeViewController.m"
-            timestampString = "418079795.559642"
+            timestampString = "418084398.204471"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "-onTweet"
             landmarkType = "5">
          </BreakpointContent>
@@ -598,11 +582,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterClient/ComposeViewController.m"
-            timestampString = "418079795.559642"
+            timestampString = "418084398.204471"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "-textViewDidChange:"
             landmarkType = "5">
          </BreakpointContent>

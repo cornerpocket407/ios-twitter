@@ -9,6 +9,7 @@
 #import "ComposeHeaderViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
+//TOIMPROVE: This class is not being used right now. Should use/reuse this nib whenever applicable
 @interface ComposeHeaderViewCell()
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;

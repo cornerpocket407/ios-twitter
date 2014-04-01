@@ -22,14 +22,11 @@
 
 - (void)awakeFromNib
 {
-    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 - (void)setTweet:(Tweet *)tweet {
@@ -43,10 +40,10 @@
     NSDate *date = [dateFormatter dateFromString:tweet.createdAt];
     self.dateLabel.text = [MHPrettyDate prettyDateFromDate:date withFormat:MHPrettyDateShortRelativeTime];
     [self.profileImage  setImageWithURL:[NSURL URLWithString:user.profileImageUrl]];
-//    [self.replyView setUserInteractionEnabled:YES];
-//    UITapGestureRecognizer *singleTap =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];
-//    [singleTap setNumberOfTapsRequired:1];
-//    [self.replyView addGestureRecognizer:singleTap];
+    [self setupTweetBarWith:tweet];
+}
+
+- (void)setupTweetBarWith:(Tweet *)tweet {
     self.tweetBarView.tweet = tweet;
     self.tweetBarView.delegate = self;
 }

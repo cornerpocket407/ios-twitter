@@ -119,6 +119,10 @@
     }
 }
 
+-(BOOL)automaticallyAdjustsScrollViewInsets {
+    return NO;
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

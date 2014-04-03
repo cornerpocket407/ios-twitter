@@ -45,10 +45,7 @@
 
 - (void)setupTweetBarWith:(Tweet *)tweet {
     self.tweetBarView.tweet = tweet;
-    self.tweetBarView.delegate = self;
+    self.tweetBarView.delegate = self.tweetBarViewDelegate;
 }
 
-- (void)replyTweet:(Tweet *)tweet {
-    [self.delegate replyTweet:tweet];
-}
 @end

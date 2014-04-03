@@ -101,7 +101,7 @@ static TweetTableViewCell *cellPrototype;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TweetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetTableViewCell" forIndexPath:indexPath];
-    cell.delegate = self;
+    cell.tweetBarViewDelegate = self;
     cell.tweet = self.tweets[indexPath.row];
     return cell;
 }
@@ -125,14 +125,14 @@ static TweetTableViewCell *cellPrototype;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Tweet *tweet = self.tweets[indexPath.row];
     TweetController *tc = [[TweetController alloc] initWithTweet:tweet];
-    tc.delegate = self;
+    tc.composeFinishDelegate = self;
     [self.navigationController pushViewController:tc animated:YES];
 }
 #pragma ComposeViewControllerDelegate
 - (void)refreshHomeTimeline {
     [self loadHomeTimeline];
 }
-#pragma TweetTableViewReplyDelegate
+#pragma TweetBarViewDelegate
 - (void)replyTweet:(Tweet *)tweet {
     [self onComposeTo:tweet];
 }

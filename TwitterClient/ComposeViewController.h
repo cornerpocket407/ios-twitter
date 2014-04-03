@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "Tweet.h"
 
-@protocol ComposeViewControllerDelegate <NSObject>
+@protocol ComposeFinishReloadTimelineDelegate <NSObject>
 - (void)refreshHomeTimeline;
 @end
 @interface ComposeViewController : UIViewController
-@property (nonatomic, weak) id <ComposeViewControllerDelegate> delegate;
+@property (nonatomic, weak) id <ComposeFinishReloadTimelineDelegate> delegate;
 - (id)initWithTweetToReply:(Tweet *)tweet;
 @end

@@ -11,12 +11,8 @@
 #import "TweetBarView.h"
 #import "ComposeViewController.h"
 
-@protocol TweetControllerRefreshTimelineDelegate <NSObject>
-- (void)refreshHomeTimeline;
-@end
-
-@interface TweetController : UIViewController <TweetBarViewDelegate, ComposeViewControllerDelegate>
+@interface TweetController : UIViewController <TweetBarReplyDelegate, ComposeFinishReloadTimelineDelegate>
 @property (nonatomic, strong) Tweet *tweet;
-@property (nonatomic, weak) id <TweetControllerRefreshTimelineDelegate> delegate;
+@property (nonatomic, weak) id <ComposeFinishReloadTimelineDelegate> composeFinishDelegate;
 - (id)initWithTweet:(Tweet *)tweet;
 @end

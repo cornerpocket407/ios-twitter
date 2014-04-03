@@ -60,20 +60,15 @@
     self.tweetBarView.delegate = self;
 }
 
-- (void)replyTweet:(Tweet *)tweet {
-    ComposeViewController *cc = [[ComposeViewController alloc] initWithTweetToReply:self.tweet];
-    cc.delegate = self;
-    [self.navigationController pushViewController:cc animated:YES];
-}
-
-- (void)refreshHomeTimeline {
-    [self.navigationController popViewControllerAnimated:NO];
-    [self.delegate refreshHomeTimeline];
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+#pragma TweetBarViewDelegate
+- (void)replyTweet:(Tweet *)tweet {
+    ComposeViewController *cc = [[ComposeViewController alloc] initWithTweetToReply:self.tweet];
+    cc.delegate = self.composeFinishDelegate;
+    [self.navigationController pushViewController:cc animated:YES];
 }
 
 @end

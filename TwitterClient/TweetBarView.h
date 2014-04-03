@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "Tweet.h"
 @class TweetBarView;
-@protocol TweetBarViewDelegate <NSObject>
+@protocol TweetBarReplyDelegate <NSObject>
 - (void)replyTweet:(Tweet *)tweet;
 @end
 
 @interface TweetBarView : UIView
-@property (nonatomic, strong) id<TweetBarViewDelegate> delegate;
+@property (nonatomic, strong) id<TweetBarReplyDelegate> delegate;
 @property (nonatomic, strong) IBOutlet UIView *view;
 @property (nonatomic, strong) Tweet *tweet;
 @end

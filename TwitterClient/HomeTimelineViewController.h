@@ -11,6 +11,6 @@
 #import "TweetTableViewCell.h"
 #import "TweetController.h"
 
-@interface HomeTimelineViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ComposeViewControllerDelegate, TweetTableViewReplyDelegate, TweetControllerRefreshTimelineDelegate>
+@interface HomeTimelineViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ComposeFinishReloadTimelineDelegate, TweetBarReplyDelegate>
 
 @end

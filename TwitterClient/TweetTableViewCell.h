@@ -9,17 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "Tweet.h"
 #import "TweetBarView.h"
-@class TweetTableViewCell;
-@protocol TweetTableViewReplyDelegate <NSObject>
-- (void)replyTweet:(Tweet *)tweet;
-@end
 
-@interface TweetTableViewCell : UITableViewCell <TweetBarViewDelegate>
+@interface TweetTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *screenNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tweetLabel;
 @property (nonatomic, strong) Tweet *tweet;
-@property (nonatomic, strong) id<TweetTableViewReplyDelegate> delegate;
+@property (nonatomic, strong) id<TweetBarReplyDelegate> tweetBarViewDelegate;
 @end

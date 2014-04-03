@@ -55,6 +55,7 @@
     self.nameLabel.text = [defaults objectForKey:@"name"];
     self.screenNameLabel.text = [defaults objectForKey:@"screenName"];
     [self.profileImage setImageWithURL:[NSURL URLWithString:[defaults objectForKey:@"profileImageUrl"]]];
+    [self.tweetView becomeFirstResponder]; //brings up keyboard
     
     //  creates Tweet Button
     UIBarButtonItem *tweetBtn = [[UIBarButtonItem alloc] initWithTitle:@"Tweet" style:UIBarButtonItemStyleBordered target:self action:@selector(onTweet)];

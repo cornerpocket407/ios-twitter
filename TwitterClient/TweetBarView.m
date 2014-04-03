@@ -13,7 +13,9 @@
 @interface TweetBarView()
 @property (weak, nonatomic) IBOutlet UIImageView *replyView;
 @property (weak, nonatomic) IBOutlet UIImageView *retweetView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *retweetLeftConstraint;
 @property (weak, nonatomic) IBOutlet UIImageView *favoriteView;
+
 @end
 @implementation TweetBarView
 
@@ -60,6 +62,7 @@
         [self setupReplyView];
     } else {
         [self.replyView setHidden:YES];
+        self.retweetLeftConstraint.constant = 0.0f;
     }
 }
 

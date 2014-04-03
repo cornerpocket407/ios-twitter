@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="favoriteView" destination="Gyh-BK-1YM" id="lKs-tU-Oxx"/>
                 <outlet property="replyView" destination="mO9-H4-PV8" id="dqB-MQ-Wbc"/>
+                <outlet property="retweetLeftConstraint" destination="y00-ee-sBk" id="aeB-Tc-SoH"/>
                 <outlet property="retweetView" destination="BMd-J9-Gkh" id="2YU-x5-FQq"/>
                 <outlet property="view" destination="iN0-l3-epB" id="LPs-W6-SbL"/>
             </connections>
@@ -17,20 +18,40 @@
             <rect key="frame" x="0.0" y="0.0" width="68" height="16"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="reply" translatesAutoresizingMaskIntoConstraints="NO" id="mO9-H4-PV8">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reply" translatesAutoresizingMaskIntoConstraints="NO" id="mO9-H4-PV8">
                     <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="16" id="YdD-ao-Vyr"/>
+                    </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="retweet" translatesAutoresizingMaskIntoConstraints="NO" id="BMd-J9-Gkh">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="retweet" translatesAutoresizingMaskIntoConstraints="NO" id="BMd-J9-Gkh">
                     <rect key="frame" x="26" y="0.0" width="16" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="16" id="9e3-Ea-eaE"/>
+                    </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="favorite" translatesAutoresizingMaskIntoConstraints="NO" id="Gyh-BK-1YM">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favorite" translatesAutoresizingMaskIntoConstraints="NO" id="Gyh-BK-1YM">
                     <rect key="frame" x="52" y="0.0" width="16" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="16" id="nTk-fy-bmF"/>
+                    </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="mO9-H4-PV8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="6mh-Ty-KnO"/>
+                <constraint firstAttribute="bottom" secondItem="BMd-J9-Gkh" secondAttribute="bottom" id="AnH-4i-pBJ"/>
+                <constraint firstItem="Gyh-BK-1YM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="QSb-x4-aqc"/>
+                <constraint firstAttribute="bottom" secondItem="Gyh-BK-1YM" secondAttribute="bottom" id="dDE-BV-5na"/>
+                <constraint firstAttribute="bottom" secondItem="mO9-H4-PV8" secondAttribute="bottom" id="pFY-Vi-z2m"/>
+                <constraint firstItem="mO9-H4-PV8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="uAh-2P-eOd"/>
+                <constraint firstItem="Gyh-BK-1YM" firstAttribute="leading" secondItem="BMd-J9-Gkh" secondAttribute="trailing" constant="10" id="vTY-Cz-JEn"/>
+                <constraint firstItem="BMd-J9-Gkh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="26" id="y00-ee-sBk"/>
+                <constraint firstItem="BMd-J9-Gkh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="z7f-BW-aMo"/>
+            </constraints>
         </view>
     </objects>
     <resources>

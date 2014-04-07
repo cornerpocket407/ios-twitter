@@ -86,7 +86,6 @@ static TweetTableViewCell *cellPrototype;
 
 - (void)loadHomeTimeline {
     [self.client homeTimelineWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@", responseObject);
         self.tweets = responseObject;
         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -122,12 +121,12 @@ static TweetTableViewCell *cellPrototype;
     return [text boundingRectWithSize:CGSizeMake(label.frame.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: font} context: nil].size;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    Tweet *tweet = self.tweets[indexPath.row];
-    TweetController *tc = [[TweetController alloc] initWithTweet:tweet];
-    tc.composeFinishDelegate = self;
-    [self.navigationController pushViewController:tc animated:YES];
-}
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    Tweet *tweet = self.tweets[indexPath.row];
+//    TweetController *tc = [[TweetController alloc] initWithTweet:tweet];
+//    tc.composeFinishDelegate = self;
+//    [self.navigationController pushViewController:tc animated:YES];
+//}
 #pragma ComposeViewControllerDelegate
 - (void)refreshHomeTimeline {
     [self loadHomeTimeline];

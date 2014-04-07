@@ -14,6 +14,7 @@
 #import "TweetBarView.h"
 
 @interface TweetTableViewCell()
+- (IBAction)onProfileTap:(UITapGestureRecognizer *)sender;
 @property (weak, nonatomic) IBOutlet TweetBarView *tweetBarView;
 @property (nonatomic, strong) TwitterClient *client;
 @end
@@ -40,12 +41,21 @@
     NSDate *date = [dateFormatter dateFromString:tweet.createdAt];
     self.dateLabel.text = [MHPrettyDate prettyDateFromDate:date withFormat:MHPrettyDateShortRelativeTime];
     [self.profileImage  setImageWithURL:[NSURL URLWithString:user.profileImageUrl]];
+//    UITapGestureRecognizer *profileTapGesture =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onProfileTap:)];
+//    [profileTapGesture setNumberOfTapsRequired:1];
+//    [self.profileImage addGestureRecognizer:profileTapGesture];
     [self setupTweetBarWith:tweet];
+}
+
+- (void)onProfileTap {
+    NSLog(@"Tapped");
 }
 
 - (void)setupTweetBarWith:(Tweet *)tweet {
     self.tweetBarView.tweet = tweet;
     self.tweetBarView.delegate = self.tweetBarViewDelegate;
 }
-
+- (IBAction)onProfileTap:(UITapGestureRecognizer *)sender {
+    NSLog(@"Tapped");
+}
 @end

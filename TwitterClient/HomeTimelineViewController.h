@@ -10,7 +10,8 @@
 #import "ComposeViewController.h"
 #import "TweetTableViewCell.h"
 #import "TweetController.h"
+#import "User.h"
 
-@interface HomeTimelineViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ComposeFinishReloadTimelineDelegate, TweetBarReplyDelegate>
-
+@interface HomeTimelineViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ComposeFinishReloadTimelineDelegate, TweetBarReplyDelegate, ProfileImageDelegate>
+@property (nonatomic, strong) User *user;
 @end

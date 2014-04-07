@@ -19,4 +19,5 @@
 - (AFHTTPRequestOperation *) tweetWith:(NSString *)text replyTo:(NSNumber *)tweetId success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 - (AFHTTPRequestOperation *) favorites:(NSNumber *)tweetId success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success ;
 - (AFHTTPRequestOperation *) unFavorites:(NSNumber *)tweetId success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success ;
+- (AFHTTPRequestOperation *) userTimelineForScreenName:(NSString *)screenName success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 @end

@@ -103,4 +103,14 @@
         NSLog(@"favorites failed: %@", error);
     }];
 }
+- (AFHTTPRequestOperation *) userTimelineForScreenName:(NSString *)screenName success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
+    [parameters setObject:screenName forKey:@"screen_name"];
+    [self setResponseSerializer:[[MUJSONResponseSerializer alloc] init]];
+    [(MUJSONResponseSerializer *)[self responseSerializer] setResponseObjectClass:[Tweet class]];
+    return [self GET:@"1.1/statuses/user_timeline.json" parameters:parameters success:success failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"get usertime failed: %@", error);
+    }];
+
+}
 @end

@@ -32,16 +32,29 @@ static TweetTableViewCell *cellPrototype;
     return self;
 }
 
+- (id)initWithUser:(User *) user {
+    self = [super init];
+    if (self) {
+        self.user = user;
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setupUI];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     UINib *tweetCellNib = [UINib nibWithNibName:@"TweetTableViewCell" bundle:nil];
     [self.tableView registerNib:tweetCellNib forCellReuseIdentifier:@"TweetTableViewCell"];
     cellPrototype = [self.tableView dequeueReusableCellWithIdentifier:@"TweetTableViewCell"];
-    [self loadHomeTimeline];
+    
+    if (self.user) {
+        [self loadUserTimeline];
+    } else {
+        [self setupUI];
+        [self loadHomeTimeline];
+    }
     
     //sets up refresh control
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
@@ -93,6 +106,15 @@ static TweetTableViewCell *cellPrototype;
     }];
 }
 
+- (void)loadUserTimeline {
+    [[TwitterClient instance] userTimelineForScreenName:self.user.screenName success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.tweets = responseObject;
+        [self.tableView reloadData];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Fetched user timeline failed");
+    }];
+}
+
 #pragma TableView
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.tweets.count;
@@ -101,6 +123,7 @@ static TweetTableViewCell *cellPrototype;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TweetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetTableViewCell" forIndexPath:indexPath];
     cell.tweetBarViewDelegate = self;
+    cell.profileImageDelegate = self;
     cell.tweet = self.tweets[indexPath.row];
     return cell;
 }
@@ -121,12 +144,13 @@ static TweetTableViewCell *cellPrototype;
     return [text boundingRectWithSize:CGSizeMake(label.frame.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: font} context: nil].size;
 }
 
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    Tweet *tweet = self.tweets[indexPath.row];
-//    TweetController *tc = [[TweetController alloc] initWithTweet:tweet];
-//    tc.composeFinishDelegate = self;
-//    [self.navigationController pushViewController:tc animated:YES];
-//}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Tweet *tweet = self.tweets[indexPath.row];
+    TweetController *tc = [[TweetController alloc] initWithTweet:tweet];
+    tc.composeFinishDelegate = self;
+    [self.navigationController pushViewController:tc animated:YES];
+}
+
 #pragma ComposeViewControllerDelegate
 - (void)refreshHomeTimeline {
     [self loadHomeTimeline];
@@ -134,5 +158,11 @@ static TweetTableViewCell *cellPrototype;
 #pragma TweetBarViewDelegate
 - (void)replyTweet:(Tweet *)tweet {
     [self onComposeTo:tweet];
+}
+#pragma ProfileImageDelegate
+- (void)onProfileClick:(User *)user {
+    NSLog(@"delegate received");
+    HomeTimelineViewController *hc = [[HomeTimelineViewController alloc] initWithUser:user];
+    [self.navigationController pushViewController:hc animated:YES];
 }
 @end

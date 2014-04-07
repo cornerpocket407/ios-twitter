@@ -13,7 +13,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="318" height="88"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RuW-td-5vc">
+                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RuW-td-5vc">
                         <rect key="frame" x="13" y="10" width="60" height="60"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <gestureRecognizers/>
@@ -21,9 +21,6 @@
                             <constraint firstAttribute="height" constant="60" id="NeQ-OV-zBL"/>
                             <constraint firstAttribute="width" constant="60" id="ZFP-sd-PRJ"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="arI-nk-8oD" appends="YES" id="3UM-69-Sfu"/>
-                        </connections>
                     </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YyW-PB-2O1">
                         <rect key="frame" x="81" y="10" width="39" height="15"/>
@@ -91,10 +88,5 @@
                 <outlet property="tweetLabel" destination="70H-JA-q2C" id="iyI-16-VyD"/>
             </connections>
         </tableViewCell>
-        <tapGestureRecognizer id="arI-nk-8oD">
-            <connections>
-                <action selector="onProfileTap:" destination="KGk-i7-Jjw" id="hPP-oR-bLd"/>
-            </connections>
-        </tapGestureRecognizer>
     </objects>
 </document>

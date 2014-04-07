@@ -10,7 +10,7 @@
 #import "MUJSONResponseSerializer.h"
 #import "NSObject+logProperties.h"
 
-@interface User : MUJSONResponseObject
+@interface User : MUJSONResponseObject <NSCoding>
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *screenName;
 @property (nonatomic, strong) NSString *profileImageUrl;

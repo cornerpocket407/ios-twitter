@@ -20,4 +20,22 @@
     }
     return self;
 }
+- (id)initWithCoder:(NSCoder *)decoder {
+    self = [super init];
+    if (!self) {
+        return nil;
+    }
+    self.name = [decoder decodeObjectForKey:@"name"];
+    self.screenName = [decoder decodeObjectForKey:@"screenName"];
+    self.profileImageUrl = [decoder decodeObjectForKey:@"profileImageUrl"];
+    self.profileBackgroundImageUrl = [decoder decodeObjectForKey:@"profileBackgroundImageUrl"];
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:self.name forKey:@"name"];
+    [encoder encodeObject:self.screenName forKey:@"screenName"];
+    [encoder encodeObject:self.profileImageUrl forKey:@"profileImageUrl"];
+    [encoder encodeObject:self.profileBackgroundImageUrl forKey:@"profileBackgroundImageUrl"];
+}
 @end

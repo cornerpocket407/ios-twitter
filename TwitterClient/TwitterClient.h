@@ -7,13 +7,15 @@
 //
 
 #import "BDBOAuth1RequestOperationManager.h"
+#import "User.h"
 
 @interface TwitterClient : BDBOAuth1RequestOperationManager
 + (TwitterClient *) instance;
+@property (nonatomic, strong) User *currentUser;
 - (void) login;
 - (void) signOut;
 - (BOOL) isAuthorized;
-- (AFHTTPRequestOperation *) getAuthenticatedUser;
+- (AFHTTPRequestOperation *) getAuthenticatedUserWithSuccess:(void (^)(void))success;
 - (AFHTTPRequestOperation *) homeTimelineWithSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 - (AFHTTPRequestOperation *) tweetWith:(NSString *)text success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 - (AFHTTPRequestOperation *) tweetWith:(NSString *)text replyTo:(NSNumber *)tweetId success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;

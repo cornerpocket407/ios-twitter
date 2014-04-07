@@ -88,8 +88,11 @@
                                                       success:^(BDBOAuthToken *accessToken) {
                                                           NSLog(@"access token");
                                                           [client.requestSerializer saveAccessToken:accessToken];
-                                                          HomeTimelineViewController *hc = [[HomeTimelineViewController alloc] init];
-                                                          [self.navController pushViewController:hc animated:YES];
+                                                          //First get current authenticated user then fetch hometimeline
+                                                          [client getAuthenticatedUserWithSuccess:^{
+                                                              HomeTimelineViewController *hc = [[HomeTimelineViewController alloc] init];
+                                                              [self.navController pushViewController:hc animated:YES];
+                                                          }];
                                                         } failure:^(NSError *error) {
                                                           NSLog(@"Error with access_token");
                                                       }];

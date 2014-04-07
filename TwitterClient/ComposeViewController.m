@@ -45,16 +45,13 @@
     [super viewDidLoad];
     [self initPlaceholderText];
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [self fetchUserInfo];
-    
-    //  TOIMPORVE: Try to use this reusable view latr
+      //  TOIMPORVE: Try to use this reusable view latr
     //  ComposeHeaderViewCell *view = [[ComposeHeaderViewCell alloc] init];
-    
+    User *currentUser = [[TwitterClient instance] currentUser];
     //  sets up views
-    self.nameLabel.text = [defaults objectForKey:@"name"];
-    self.screenNameLabel.text = [defaults objectForKey:@"screenName"];
-    [self.profileImage setImageWithURL:[NSURL URLWithString:[defaults objectForKey:@"profileImageUrl"]]];
+    self.nameLabel.text = currentUser.name;
+    self.screenNameLabel.text = currentUser.screenName;
+    [self.profileImage setImageWithURL:[NSURL URLWithString:currentUser.profileImageUrl]];
     [self.tweetView becomeFirstResponder]; //brings up keyboard
     
     //  creates Tweet Button
@@ -72,15 +69,6 @@
     }
     self.tweetView.textColor = [UIColor lightGrayColor];
     self.tweetView.delegate = self;
-}
-
-//  TOIMPROVE: More elegant solution later
-- (void) fetchUserInfo {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *name = [defaults objectForKey:@"name"];
-    if (!name) {
-        [self.client getAuthenticatedUser];
-    }
 }
 
 - (void)onTweet {

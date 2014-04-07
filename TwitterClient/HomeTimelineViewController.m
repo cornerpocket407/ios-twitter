@@ -68,12 +68,9 @@ static TweetTableViewCell *cellPrototype;
             [self.headerBackgroundImage setImageWithURL:[NSURL URLWithString:self.user.profileBackgroundImageUrl]];
             [self.headerImage setImageWithURL:[NSURL URLWithString:self.user.profileImageUrl]];
         } else {
-            //  TOIMPROVE: More elegant solution: To have a global user object. (Also in ComposeViewController)
-            [self fetchUserInfo];
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            NSLog(@"background image: %@", [defaults objectForKey:@"profileBackgroundImageUrl"]);
-            [self.headerBackgroundImage setImageWithURL:[NSURL URLWithString:[defaults objectForKey:@"profileBackgroundImageUrl"]]];
-            [self.headerImage setImageWithURL:[NSURL URLWithString:[defaults objectForKey:@"profileImageUrl"]]];
+            User *currentUser = [[TwitterClient instance] currentUser];
+            [self.headerBackgroundImage setImageWithURL:[NSURL URLWithString:currentUser.profileBackgroundImageUrl]];
+            [self.headerImage setImageWithURL:[NSURL URLWithString: currentUser.profileImageUrl]];
             [self setupHomeTimelineNavBar];
         }
     };
@@ -84,15 +81,6 @@ static TweetTableViewCell *cellPrototype;
         [[TwitterClient instance] userTimelineForScreenName:self.user.screenName success:success failure:failure];
     } else {
         [[TwitterClient instance] homeTimelineWithSuccess:success failure:failure];
-    }
-}
-
-//  TOIMPROVE: More elegant solution later
-- (void) fetchUserInfo {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *name = [defaults objectForKey:@"name"];
-    if (!name) {
-        [self.client getAuthenticatedUser];
     }
 }
 

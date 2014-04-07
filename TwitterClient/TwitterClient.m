@@ -29,6 +29,22 @@
     });
     return client;
 }
+@synthesize currentUser = _currentUser;
+- (User *) currentUser {
+    if(!_currentUser) {
+        NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
+        User *user = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        _currentUser = user;
+    }
+    return _currentUser;
+}
+
+- (void)setCurrentUser:(User *)user {
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:user];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:data forKey:@"user"];
+    [defaults synchronize];
+}
 
 - (void)login {
     [self.requestSerializer removeAccessToken];
@@ -49,19 +65,21 @@
     return (self.requestSerializer.accessToken && !self.requestSerializer.accessToken.expired);
 }
 
-- (AFHTTPRequestOperation *) getAuthenticatedUser {
+- (AFHTTPRequestOperation *) getAuthenticatedUserWithSuccess:(void (^)(void))success {
     [self setResponseSerializer:[[MUJSONResponseSerializer alloc] init]];
     [(MUJSONResponseSerializer *)[self responseSerializer] setResponseObjectClass:[User class]];
     return [self GET:@"1.1/account/verify_credentials.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"getAuthenticatedUser succeed");
         User *user = responseObject;
         [user logProperties];
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:user.name forKey:@"name"];
-        [defaults setObject:user.screenName forKey:@"screenName"];
-        [defaults setObject:user.profileImageUrl forKey:@"profileImageUrl"];
-        [defaults setObject:user.profileBackgroundImageUrl forKey:@"profileBackgroundImageUrl"];
-        [defaults synchronize];
+        [self setCurrentUser:user];
+        success();
+//        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//        [defaults setObject:user.name forKey:@"name"];
+//        [defaults setObject:user.screenName forKey:@"screenName"];
+//        [defaults setObject:user.profileImageUrl forKey:@"profileImageUrl"];
+//        [defaults setObject:user.profileBackgroundImageUrl forKey:@"profileBackgroundImageUrl"];
+//        [defaults synchronize];
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"getAuthenticatedUser failed");

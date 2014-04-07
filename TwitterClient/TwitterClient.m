@@ -65,15 +65,16 @@
     return (self.requestSerializer.accessToken && !self.requestSerializer.accessToken.expired);
 }
 
-- (AFHTTPRequestOperation *) getAuthenticatedUserWithSuccess:(void (^)(void))success {
+- (AFHTTPRequestOperation *) getAuthenticatedUserWithSuccess:(void (^)(User *))success {
     [self setResponseSerializer:[[MUJSONResponseSerializer alloc] init]];
     [(MUJSONResponseSerializer *)[self responseSerializer] setResponseObjectClass:[User class]];
     return [self GET:@"1.1/account/verify_credentials.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"getAuthenticatedUser succeed");
         User *user = responseObject;
+        user.isAuthenicatedUser = YES;
         [user logProperties];
         [self setCurrentUser:user];
-        success();
+        success(user);
 //        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 //        [defaults setObject:user.name forKey:@"name"];
 //        [defaults setObject:user.screenName forKey:@"screenName"];

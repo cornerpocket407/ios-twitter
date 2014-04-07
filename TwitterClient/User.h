@@ -15,4 +15,5 @@
 @property (nonatomic, strong) NSString *screenName;
 @property (nonatomic, strong) NSString *profileImageUrl;
 @property (nonatomic, strong) NSString *profileBackgroundImageUrl;
+@property (nonatomic, assign) BOOL isAuthenicatedUser;
 @end

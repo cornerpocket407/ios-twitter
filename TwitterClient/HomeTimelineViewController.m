@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *headerBackgroundImage;
 @property (weak, nonatomic) IBOutlet UIImageView *headerImage;
 @property (nonatomic, strong) NSArray *tweets;
+@property (nonatomic, strong) User *user;
 @end
 
 @implementation HomeTimelineViewController
@@ -64,15 +65,22 @@ static TweetTableViewCell *cellPrototype;
     void (^ success)(AFHTTPRequestOperation *operation, id responseObject) = ^void(AFHTTPRequestOperation *operation, id responseObject) {
         self.tweets = responseObject;
         [self.tableView reloadData];
-        if (self.user) {
-            [self.headerBackgroundImage setImageWithURL:[NSURL URLWithString:self.user.profileBackgroundImageUrl]];
-            [self.headerImage setImageWithURL:[NSURL URLWithString:self.user.profileImageUrl]];
-        } else {
-            User *currentUser = [[TwitterClient instance] currentUser];
-            [self.headerBackgroundImage setImageWithURL:[NSURL URLWithString:currentUser.profileBackgroundImageUrl]];
-            [self.headerImage setImageWithURL:[NSURL URLWithString: currentUser.profileImageUrl]];
+        
+        if (self.user.isAuthenicatedUser) {
             [self setupHomeTimelineNavBar];
         }
+        [self.headerBackgroundImage setImageWithURL:[NSURL URLWithString:self.user.profileBackgroundImageUrl]];
+        [self.headerImage setImageWithURL:[NSURL URLWithString: self.user.profileImageUrl]];
+
+//        if (self.user) {
+//            [self.headerBackgroundImage setImageWithURL:[NSURL URLWithString:self.user.profileBackgroundImageUrl]];
+//            [self.headerImage setImageWithURL:[NSURL URLWithString:self.user.profileImageUrl]];
+//        } else {
+//            User *currentUser = [[TwitterClient instance] currentUser];
+//            [self.headerBackgroundImage setImageWithURL:[NSURL URLWithString:currentUser.profileBackgroundImageUrl]];
+//            [self.headerImage setImageWithURL:[NSURL URLWithString: currentUser.profileImageUrl]];
+//            [self setupHomeTimelineNavBar];
+//        }
     };
     void (^ failure)(AFHTTPRequestOperation *operation, NSError *error) = ^void(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Fetched timeline failed: %@", error);

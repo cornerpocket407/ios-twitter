@@ -89,8 +89,8 @@
                                                           NSLog(@"access token");
                                                           [client.requestSerializer saveAccessToken:accessToken];
                                                           //First get current authenticated user then fetch hometimeline
-                                                          [client getAuthenticatedUserWithSuccess:^{
-                                                              HomeTimelineViewController *hc = [[HomeTimelineViewController alloc] init];
+                                                          [client getAuthenticatedUserWithSuccess:^void(User *user){
+                                                              HomeTimelineViewController *hc = [[HomeTimelineViewController alloc] initWithUser:user];
                                                               [self.navController pushViewController:hc animated:YES];
                                                           }];
                                                         } failure:^(NSError *error) {

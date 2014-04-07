@@ -13,5 +13,5 @@
 #import "User.h"
 
 @interface HomeTimelineViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ComposeFinishReloadTimelineDelegate, TweetBarReplyDelegate, ProfileImageDelegate>
-@property (nonatomic, strong) User *user;
+- (id)initWithUser:(User *) user;
 @end

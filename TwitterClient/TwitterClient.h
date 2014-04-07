@@ -15,7 +15,7 @@
 - (void) login;
 - (void) signOut;
 - (BOOL) isAuthorized;
-- (AFHTTPRequestOperation *) getAuthenticatedUserWithSuccess:(void (^)(void))success;
+- (AFHTTPRequestOperation *) getAuthenticatedUserWithSuccess:(void (^)(User *))success;
 - (AFHTTPRequestOperation *) homeTimelineWithSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 - (AFHTTPRequestOperation *) tweetWith:(NSString *)text success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 - (AFHTTPRequestOperation *) tweetWith:(NSString *)text replyTo:(NSNumber *)tweetId success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;

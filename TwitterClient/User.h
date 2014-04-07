@@ -14,4 +14,5 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *screenName;
 @property (nonatomic, strong) NSString *profileImageUrl;
+@property (nonatomic, strong) NSString *profileBackgroundImageUrl;
 @end

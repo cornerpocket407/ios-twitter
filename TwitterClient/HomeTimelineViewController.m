@@ -13,10 +13,13 @@
 #import "Tweet.h"
 #import "ComposeViewController.h"
 #import "TweetController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface HomeTimelineViewController ()
 @property (nonatomic, strong) TwitterClient *client;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIImageView *headerBackgroundImage;
+@property (weak, nonatomic) IBOutlet UIImageView *headerImage;
 @property (nonatomic, strong) NSArray *tweets;
 @end
 
@@ -49,18 +52,50 @@ static TweetTableViewCell *cellPrototype;
     [self.tableView registerNib:tweetCellNib forCellReuseIdentifier:@"TweetTableViewCell"];
     cellPrototype = [self.tableView dequeueReusableCellWithIdentifier:@"TweetTableViewCell"];
     
-    if (self.user) {
-        [self loadUserTimeline];
-    } else {
-        [self setupUI];
-        [self loadHomeTimeline];
-    }
+    [self loadTimeline];
     
     //sets up refresh control
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:refreshControl];
 }
+
+- (void)loadTimeline {
+    void (^ success)(AFHTTPRequestOperation *operation, id responseObject) = ^void(AFHTTPRequestOperation *operation, id responseObject) {
+        self.tweets = responseObject;
+        [self.tableView reloadData];
+        if (self.user) {
+            [self.headerBackgroundImage setImageWithURL:[NSURL URLWithString:self.user.profileBackgroundImageUrl]];
+            [self.headerImage setImageWithURL:[NSURL URLWithString:self.user.profileImageUrl]];
+        } else {
+            //  TOIMPROVE: More elegant solution: To have a global user object. (Also in ComposeViewController)
+            [self fetchUserInfo];
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            NSLog(@"background image: %@", [defaults objectForKey:@"profileBackgroundImageUrl"]);
+            [self.headerBackgroundImage setImageWithURL:[NSURL URLWithString:[defaults objectForKey:@"profileBackgroundImageUrl"]]];
+            [self.headerImage setImageWithURL:[NSURL URLWithString:[defaults objectForKey:@"profileImageUrl"]]];
+            [self setupHomeTimelineNavBar];
+        }
+    };
+    void (^ failure)(AFHTTPRequestOperation *operation, NSError *error) = ^void(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Fetched timeline failed: %@", error);
+    };
+    if (self.user) {
+        [[TwitterClient instance] userTimelineForScreenName:self.user.screenName success:success failure:failure];
+    } else {
+        [[TwitterClient instance] homeTimelineWithSuccess:success failure:failure];
+    }
+}
+
+//  TOIMPROVE: More elegant solution later
+- (void) fetchUserInfo {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *name = [defaults objectForKey:@"name"];
+    if (!name) {
+        [self.client getAuthenticatedUser];
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -68,11 +103,11 @@ static TweetTableViewCell *cellPrototype;
 }
 
 - (void)refresh:(UIRefreshControl *)refreshControl {
-    [self loadHomeTimeline];
+    [self loadTimeline];
     [refreshControl endRefreshing];
 }
 
-- (void)setupUI {
+- (void)setupHomeTimelineNavBar {
     UIBarButtonItem *newBtn = [[UIBarButtonItem alloc] initWithTitle:@"New" style:UIBarButtonItemStyleBordered target:self action: @selector(onCompose)];
     newBtn.tintColor = [UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = newBtn;
@@ -95,24 +130,6 @@ static TweetTableViewCell *cellPrototype;
     ComposeViewController *cc = [[ComposeViewController alloc] initWithTweetToReply:replyTo];
     cc.delegate = self;
     [self.navigationController pushViewController:cc animated:YES];
-}
-
-- (void)loadHomeTimeline {
-    [self.client homeTimelineWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.tweets = responseObject;
-        [self.tableView reloadData];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"hometimeline failed! error:%@", error);
-    }];
-}
-
-- (void)loadUserTimeline {
-    [[TwitterClient instance] userTimelineForScreenName:self.user.screenName success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.tweets = responseObject;
-        [self.tableView reloadData];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Fetched user timeline failed");
-    }];
 }
 
 #pragma TableView
@@ -153,7 +170,7 @@ static TweetTableViewCell *cellPrototype;
 
 #pragma ComposeViewControllerDelegate
 - (void)refreshHomeTimeline {
-    [self loadHomeTimeline];
+    [self loadTimeline];
 }
 #pragma TweetBarViewDelegate
 - (void)replyTweet:(Tweet *)tweet {

@@ -60,6 +60,7 @@
         [defaults setObject:user.name forKey:@"name"];
         [defaults setObject:user.screenName forKey:@"screenName"];
         [defaults setObject:user.profileImageUrl forKey:@"profileImageUrl"];
+        [defaults setObject:user.profileBackgroundImageUrl forKey:@"profileBackgroundImageUrl"];
         [defaults synchronize];
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

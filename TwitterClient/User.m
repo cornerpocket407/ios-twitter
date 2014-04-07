@@ -15,6 +15,7 @@
     {
         self.propertyMap = @{@"screen_name": @"screenName",
                              @"profile_image_url": @"profileImageUrl",
+                             @"profile_background_image_url": @"profileBackgroundImageUrl",
                              @"name":  @"name"};
     }
     return self;

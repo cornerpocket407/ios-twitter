@@ -20,12 +20,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterClient/HomeTimelineViewController.m"
-            timestampString = "418531241.904448"
+            timestampString = "418545142.780221"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
             landmarkName = "-sizeOfLabel:font:withText:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TwitterClient/TwitterClient.m"
+            timestampString = "418545046.4275"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "-getAuthenticatedUser"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TwitterClient/HomeTimelineViewController.m"
+            timestampString = "418545142.780221"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "-fetchUserInfo"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

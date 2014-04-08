@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		6D55D8D818F37D7A006616D0 /* SideMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D55D8D718F37D7A006616D0 /* SideMenuView.m */; };
 		6D55D8DA18F37D92006616D0 /* SideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D55D8D918F37D92006616D0 /* SideMenuView.xib */; };
+		6D55D8DE18F3C61E006616D0 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D55D8DC18F3C61E006616D0 /* MenuViewController.m */; };
+		6D55D8DF18F3C61E006616D0 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D55D8DD18F3C61E006616D0 /* MenuViewController.xib */; };
+		6D55D8E318F3C80D006616D0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D55D8E118F3C80D006616D0 /* MainViewController.m */; };
+		6D55D8E418F3C80D006616D0 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D55D8E218F3C80D006616D0 /* MainViewController.xib */; };
 		6D8C81FE18E688CD001D8CA2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D8C81FD18E688CD001D8CA2 /* Foundation.framework */; };
 		6D8C820018E688CD001D8CA2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D8C81FF18E688CD001D8CA2 /* CoreGraphics.framework */; };
 		6D8C820218E688CE001D8CA2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D8C820118E688CE001D8CA2 /* UIKit.framework */; };
@@ -57,6 +61,12 @@
 		6D55D8D618F37D7A006616D0 /* SideMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuView.h; sourceTree = "<group>"; };
 		6D55D8D718F37D7A006616D0 /* SideMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuView.m; sourceTree = "<group>"; };
 		6D55D8D918F37D92006616D0 /* SideMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideMenuView.xib; sourceTree = "<group>"; };
+		6D55D8DB18F3C61E006616D0 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		6D55D8DC18F3C61E006616D0 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		6D55D8DD18F3C61E006616D0 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
+		6D55D8E018F3C80D006616D0 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		6D55D8E118F3C80D006616D0 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		6D55D8E218F3C80D006616D0 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		6D8C81FA18E688CD001D8CA2 /* TwitterClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D8C81FD18E688CD001D8CA2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6D8C81FF18E688CD001D8CA2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -230,6 +240,12 @@
 				6D8C825E18E939E3001D8CA2 /* TweetController.h */,
 				6D8C825F18E939E3001D8CA2 /* TweetController.m */,
 				6D8C826018E939E3001D8CA2 /* TweetController.xib */,
+				6D55D8DB18F3C61E006616D0 /* MenuViewController.h */,
+				6D55D8DC18F3C61E006616D0 /* MenuViewController.m */,
+				6D55D8DD18F3C61E006616D0 /* MenuViewController.xib */,
+				6D55D8E018F3C80D006616D0 /* MainViewController.h */,
+				6D55D8E118F3C80D006616D0 /* MainViewController.m */,
+				6D55D8E218F3C80D006616D0 /* MainViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -350,6 +366,8 @@
 				6D8C825D18E8EAE4001D8CA2 /* ComposeHeaderViewCell.xib in Resources */,
 				6D8C820818E688CF001D8CA2 /* InfoPlist.strings in Resources */,
 				6D55D8DA18F37D92006616D0 /* SideMenuView.xib in Resources */,
+				6D55D8E418F3C80D006616D0 /* MainViewController.xib in Resources */,
+				6D55D8DF18F3C61E006616D0 /* MenuViewController.xib in Resources */,
 				6D8C821018E688D1001D8CA2 /* Images.xcassets in Resources */,
 				6D8C823A18E6BFEF001D8CA2 /* HomeTimelineViewController.xib in Resources */,
 				6D8C823518E6967F001D8CA2 /* LoginViewController.xib in Resources */,
@@ -407,7 +425,9 @@
 				6D8C823418E6967F001D8CA2 /* LoginViewController.m in Sources */,
 				6D8C820E18E688D0001D8CA2 /* AppDelegate.m in Sources */,
 				6D8C824718E7C1CB001D8CA2 /* User.m in Sources */,
+				6D55D8E318F3C80D006616D0 /* MainViewController.m in Sources */,
 				6D8C826118E939E3001D8CA2 /* TweetController.m in Sources */,
+				6D55D8DE18F3C61E006616D0 /* MenuViewController.m in Sources */,
 				6D8C823918E6BFEF001D8CA2 /* HomeTimelineViewController.m in Sources */,
 				6D8C823E18E7585F001D8CA2 /* Tweet.m in Sources */,
 				6D8C824418E7BFB9001D8CA2 /* NSObject+logProperties.m in Sources */,

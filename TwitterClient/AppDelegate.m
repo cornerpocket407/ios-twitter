@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "HomeTimelineViewController.h"
+#import "MainViewController.h"
 #import "LoginViewController.h"
 #import "TwitterClient.h"
 
@@ -42,8 +43,10 @@
     self.navController = [[UINavigationController alloc] initWithRootViewController:lc];
     self.navController.navigationBar.barTintColor = [UIColor colorWithRed:0.46f green:0.71f blue:0.90f alpha:1];
     if ([client isAuthorized]) {
-        HomeTimelineViewController *hc = [[HomeTimelineViewController alloc] init];
-        [self.navController pushViewController:hc animated:NO];
+//        HomeTimelineViewController *hc = [[HomeTimelineViewController alloc] initWithUser:client.currentUser];
+//        [self.navController pushViewController:hc animated:NO];
+        MainViewController *mc = [[MainViewController alloc] initWithUser:client.currentUser];
+        [self.navController pushViewController:mc animated:NO];
     }
     self.window.rootViewController = self.navController;
     [self.window makeKeyAndVisible];
@@ -92,6 +95,10 @@
                                                           [client getAuthenticatedUserWithSuccess:^void(User *user){
                                                               HomeTimelineViewController *hc = [[HomeTimelineViewController alloc] initWithUser:user];
                                                               [self.navController pushViewController:hc animated:YES];
+//
+//                                                              
+//                                                              MainViewController *mc = [[MainViewController alloc] initWithUser:user];
+//                                                              [self.navController pushViewController:mc animated:YES];
                                                           }];
                                                         } failure:^(NSError *error) {
                                                           NSLog(@"Error with access_token");

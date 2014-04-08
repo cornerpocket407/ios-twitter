@@ -6,7 +6,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeTimelineViewController">
             <connections>
-                <outlet property="hamburgerMenuView" destination="hPJ-G7-pF2" id="uJx-nH-P7S"/>
                 <outlet property="headerBackgroundImage" destination="Aww-us-ACY" id="4yg-y8-pgd"/>
                 <outlet property="headerImage" destination="wcM-cI-yL5" id="LWQ-5Z-bps"/>
                 <outlet property="tableView" destination="uTq-o9-FtV" id="79U-uN-nIe"/>
@@ -31,11 +30,6 @@
                     <rect key="frame" x="130" y="97" width="60" height="60"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hPJ-G7-pF2">
-                    <rect key="frame" x="213" y="97" width="107" height="84"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.23637719759623865" green="1" blue="0.21542644152039037" alpha="1" colorSpace="calibratedRGB"/>
-                </view>
             </subviews>
             <color key="backgroundColor" red="0.96134477555527043" green="0.97509327391579892" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

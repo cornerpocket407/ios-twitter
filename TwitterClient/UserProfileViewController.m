@@ -1,12 +1,12 @@
 //
-//  HomeTimelineViewController.m
+//  UserProfileViewController.m
 //  TwitterClient
 //
-//  Created by Tony Dao on 3/29/14.
+//  Created by Tony Dao on 4/8/14.
 //  Copyright (c) 2014 Tony Dao. All rights reserved.
 //
 
-#import "HomeTimelineViewController.h"
+#import "UserProfileViewController.h"
 #import "TwitterClient.h"
 #import "NSObject+logProperties.h"
 #import "TweetTableViewCell.h"
@@ -14,36 +14,42 @@
 #import "ComposeViewController.h"
 #import "TweetController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "UserProfileViewController.h"
 
-@interface HomeTimelineViewController ()
-@property (nonatomic, strong) TwitterClient *client;
+@interface UserProfileViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) NSArray *tweets;
+@property (weak, nonatomic) IBOutlet UIImageView *profileBackgroundImage;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImage;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *screenNameLabel;
 @property (nonatomic, strong) User *user;
-@property (nonatomic, assign) enum TWEETS_TYPE tweetsType;
+@property (nonatomic, strong) NSArray *tweets;
 @end
 
-@implementation HomeTimelineViewController
+@implementation UserProfileViewController
 static TweetTableViewCell *cellPrototype;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.client = [TwitterClient instance];
+        // Custom initialization
+    }
+    return self;
+}
+
+- (id)initWithUser:(User *) user {
+    self = [super init];
+    if (self) {
+        self.user = user;
         [self setAutomaticallyAdjustsScrollViewInsets:NO];
     }
     return self;
 }
 
-- (id)initWithTweetType:(enum TWEETS_TYPE)type {
-    self = [super init];
-    if (self) {
-        self.tweetsType = type;
-        [self setAutomaticallyAdjustsScrollViewInsets:NO];
-    }
-    return self;
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 - (void)viewDidLoad
@@ -67,30 +73,14 @@ static TweetTableViewCell *cellPrototype;
     void (^ success)(AFHTTPRequestOperation *operation, id responseObject) = ^void(AFHTTPRequestOperation *operation, id responseObject) {
         self.tweets = responseObject;
         [self.tableView reloadData];
-//            [self setupHomeTimelineNavBar];
+        //            [self setupHomeTimelineNavBar];
+        [self.profileBackgroundImage setImageWithURL:[NSURL URLWithString:self.user.profileBackgroundImageUrl]];
+        [self.profileImage setImageWithURL:[NSURL URLWithString: self.user.profileImageUrl]];
     };
     void (^ failure)(AFHTTPRequestOperation *operation, NSError *error) = ^void(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Fetched timeline failed: %@", error);
     };
-    switch (self.tweetsType) {
-        case mentions:
-            [[TwitterClient instance] mentionsWithSuccess:success failure:failure];
-            break;
-        case home:
-            [[TwitterClient instance] homeTimelineWithSuccess:success failure:failure];
-            break;
-        case user:
-            [[TwitterClient instance] userTimelineForScreenName:self.user.screenName success:success failure:failure];
-            break;
-        default:
-            break;
-    }
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [[TwitterClient instance] userTimelineForScreenName:self.user.screenName success:success failure:failure];
 }
 
 - (void)refresh:(UIRefreshControl *)refreshControl {

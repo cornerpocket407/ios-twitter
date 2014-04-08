@@ -14,6 +14,5 @@
 #import "TweetsType.h"
 
 @interface HomeTimelineViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ComposeFinishReloadTimelineDelegate, TweetBarReplyDelegate, ProfileImageDelegate>
-- (id)initWithUser:(User *) user;
 - (id)initWithTweetType:(enum TWEETS_TYPE)tweetsType;
 @end

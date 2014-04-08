@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D4FCDB018F4A3A2003F24ED /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4FCDAE18F4A3A2003F24ED /* UserProfileViewController.m */; };
+		6D4FCDB118F4A3A2003F24ED /* UserProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D4FCDAF18F4A3A2003F24ED /* UserProfileViewController.xib */; };
 		6D55D8D818F37D7A006616D0 /* SideMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D55D8D718F37D7A006616D0 /* SideMenuView.m */; };
 		6D55D8DA18F37D92006616D0 /* SideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D55D8D918F37D92006616D0 /* SideMenuView.xib */; };
 		6D55D8DE18F3C61E006616D0 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D55D8DC18F3C61E006616D0 /* MenuViewController.m */; };
@@ -59,6 +61,9 @@
 
 /* Begin PBXFileReference section */
 		034578B5DDA3485E8EE5C895 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		6D4FCDAD18F4A3A2003F24ED /* UserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileViewController.h; sourceTree = "<group>"; };
+		6D4FCDAE18F4A3A2003F24ED /* UserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
+		6D4FCDAF18F4A3A2003F24ED /* UserProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProfileViewController.xib; sourceTree = "<group>"; };
 		6D55D8D618F37D7A006616D0 /* SideMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuView.h; sourceTree = "<group>"; };
 		6D55D8D718F37D7A006616D0 /* SideMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuView.m; sourceTree = "<group>"; };
 		6D55D8D918F37D92006616D0 /* SideMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideMenuView.xib; sourceTree = "<group>"; };
@@ -249,6 +254,9 @@
 				6D55D8E018F3C80D006616D0 /* MainViewController.h */,
 				6D55D8E118F3C80D006616D0 /* MainViewController.m */,
 				6D55D8E218F3C80D006616D0 /* MainViewController.xib */,
+				6D4FCDAD18F4A3A2003F24ED /* UserProfileViewController.h */,
+				6D4FCDAE18F4A3A2003F24ED /* UserProfileViewController.m */,
+				6D4FCDAF18F4A3A2003F24ED /* UserProfileViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -376,6 +384,7 @@
 				6D8C821018E688D1001D8CA2 /* Images.xcassets in Resources */,
 				6D8C823A18E6BFEF001D8CA2 /* HomeTimelineViewController.xib in Resources */,
 				6D8C823518E6967F001D8CA2 /* LoginViewController.xib in Resources */,
+				6D4FCDB118F4A3A2003F24ED /* UserProfileViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +444,7 @@
 				6D55D8DE18F3C61E006616D0 /* MenuViewController.m in Sources */,
 				6D8C823918E6BFEF001D8CA2 /* HomeTimelineViewController.m in Sources */,
 				6D8C823E18E7585F001D8CA2 /* Tweet.m in Sources */,
+				6D4FCDB018F4A3A2003F24ED /* UserProfileViewController.m in Sources */,
 				6D8C824418E7BFB9001D8CA2 /* NSObject+logProperties.m in Sources */,
 				6D8C828818E96C4E001D8CA2 /* TweetBarView.m in Sources */,
 				6D7318DD18F4954C005B11BC /* TweetsType.m in Sources */,

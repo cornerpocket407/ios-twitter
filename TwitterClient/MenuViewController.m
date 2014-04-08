@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 - (IBAction)onMentionsClick:(id)sender;
 - (IBAction)onHomeClick:(UIButton *)sender;
+- (IBAction)onProfileClick:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UILabel *screenNameLabel;
 @end
 
@@ -50,5 +51,9 @@
 
 - (IBAction)onHomeClick:(UIButton *)sender {
        [self.menuViewDelegate onMenuClickForType:home];
+}
+
+- (IBAction)onProfileClick:(UIButton *)sender {
+    [self.menuViewDelegate onMenuClickForType:user];
 }
 @end

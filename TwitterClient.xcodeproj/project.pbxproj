@@ -13,6 +13,7 @@
 		6D55D8DF18F3C61E006616D0 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D55D8DD18F3C61E006616D0 /* MenuViewController.xib */; };
 		6D55D8E318F3C80D006616D0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D55D8E118F3C80D006616D0 /* MainViewController.m */; };
 		6D55D8E418F3C80D006616D0 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D55D8E218F3C80D006616D0 /* MainViewController.xib */; };
+		6D7318DD18F4954C005B11BC /* TweetsType.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7318DC18F4954C005B11BC /* TweetsType.m */; };
 		6D8C81FE18E688CD001D8CA2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D8C81FD18E688CD001D8CA2 /* Foundation.framework */; };
 		6D8C820018E688CD001D8CA2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D8C81FF18E688CD001D8CA2 /* CoreGraphics.framework */; };
 		6D8C820218E688CE001D8CA2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D8C820118E688CE001D8CA2 /* UIKit.framework */; };
@@ -67,6 +68,8 @@
 		6D55D8E018F3C80D006616D0 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		6D55D8E118F3C80D006616D0 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		6D55D8E218F3C80D006616D0 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		6D7318DB18F4954C005B11BC /* TweetsType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetsType.h; sourceTree = "<group>"; };
+		6D7318DC18F4954C005B11BC /* TweetsType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetsType.m; sourceTree = "<group>"; };
 		6D8C81FA18E688CD001D8CA2 /* TwitterClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D8C81FD18E688CD001D8CA2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6D8C81FF18E688CD001D8CA2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -259,6 +262,8 @@
 				6D8C824318E7BFB9001D8CA2 /* NSObject+logProperties.m */,
 				6D8C824518E7C1CB001D8CA2 /* User.h */,
 				6D8C824618E7C1CB001D8CA2 /* User.m */,
+				6D7318DB18F4954C005B11BC /* TweetsType.h */,
+				6D7318DC18F4954C005B11BC /* TweetsType.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -432,6 +437,7 @@
 				6D8C823E18E7585F001D8CA2 /* Tweet.m in Sources */,
 				6D8C824418E7BFB9001D8CA2 /* NSObject+logProperties.m in Sources */,
 				6D8C828818E96C4E001D8CA2 /* TweetBarView.m in Sources */,
+				6D7318DD18F4954C005B11BC /* TweetsType.m in Sources */,
 				6D8C822F18E68921001D8CA2 /* TwitterClient.m in Sources */,
 				6D8C825C18E8EAE4001D8CA2 /* ComposeHeaderViewCell.m in Sources */,
 				6D8C820A18E688CF001D8CA2 /* main.m in Sources */,

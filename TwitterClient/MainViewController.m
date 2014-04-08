@@ -9,13 +9,11 @@
 #import "MainViewController.h"
 #import "HomeTimelineViewController.h"
 #import "MenuViewController.h"
-#import "User.h"
 
 static int const MENU_BEGIN_X = -320;
 static int const MENU_END_X = -20;
 
 @interface MainViewController ()
-@property (nonatomic, strong) User *user;
 @property (nonatomic, strong) HomeTimelineViewController *hc;
 @property (nonatomic, strong) MenuViewController *mc;
 @end
@@ -31,16 +29,17 @@ static int const MENU_END_X = -20;
     return self;
 }
 
-- (id)initWithUser:(User *)user {
+- (id)initWithTweetType:(enum TWEETS_TYPE)type {
     self = [super init];
     if (self) {
-        self.user = user;
-        self.hc = [[HomeTimelineViewController alloc] initWithTweetType:home];
+        self.hc = [[HomeTimelineViewController alloc] initWithTweetType:type];
         self.mc = [[MenuViewController alloc] init];
+        self.mc.menuViewDelegate = self;
         [self addChildViewController:self.hc];
         [self addChildViewController:self.mc];
     }
     return self;
+  
 }
 
 - (void)viewDidLoad
@@ -131,5 +130,10 @@ static int const MENU_END_X = -20;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+#pragma MenuViewDelegate
+- (void)onMentionsClickWithTweetType:(enum TWEETS_TYPE)type {
+    NSLog(@"menuview delegate received");
+    MainViewController *mc = [[MainViewController alloc] initWithTweetType:mentions];
+    [self.navigationController pushViewController:mc animated:YES];
+}
 @end

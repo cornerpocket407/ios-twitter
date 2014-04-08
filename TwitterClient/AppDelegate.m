@@ -45,7 +45,7 @@
     if ([client isAuthorized]) {
 //        HomeTimelineViewController *hc = [[HomeTimelineViewController alloc] initWithUser:client.currentUser];
 //        [self.navController pushViewController:hc animated:NO];
-        MainViewController *mc = [[MainViewController alloc] initWithUser:client.currentUser];
+        MainViewController *mc = [[MainViewController alloc] initWithTweetType:home];
         [self.navController pushViewController:mc animated:NO];
     }
     self.window.rootViewController = self.navController;
@@ -93,12 +93,8 @@
                                                           [client.requestSerializer saveAccessToken:accessToken];
                                                           //First get current authenticated user then fetch hometimeline
                                                           [client getAuthenticatedUserWithSuccess:^void(User *user){
-                                                              HomeTimelineViewController *hc = [[HomeTimelineViewController alloc] initWithUser:user];
-                                                              [self.navController pushViewController:hc animated:YES];
-//
-//                                                              
-//                                                              MainViewController *mc = [[MainViewController alloc] initWithUser:user];
-//                                                              [self.navController pushViewController:mc animated:YES];
+                                                              MainViewController *mc = [[MainViewController alloc] initWithTweetType:home];
+                                                              [self.navController pushViewController:mc animated:YES];
                                                           }];
                                                         } failure:^(NSError *error) {
                                                           NSLog(@"Error with access_token");

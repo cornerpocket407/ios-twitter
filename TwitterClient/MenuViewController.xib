@@ -39,11 +39,14 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dz3-Sy-dNo">
-                            <rect key="frame" x="126" y="194" width="46" height="30"/>
+                            <rect key="frame" x="126" y="194" width="64" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button">
+                            <state key="normal" title="Mentions">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="onMentionsClick:" destination="-1" eventType="touchUpInside" id="6vm-nQ-pxP"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.55861367979999998" green="0.55861367979999998" blue="0.55861367979999998" alpha="1" colorSpace="calibratedRGB"/>

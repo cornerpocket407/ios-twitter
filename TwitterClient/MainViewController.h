@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "User.h"
+#import "MenuViewController.h"
+#import "TweetsType.h"
 
-@interface MainViewController : UIViewController
+@interface MainViewController : UIViewController <MenuViewDelegate>
 - (id)initWithUser:(User *)user;
+- (id)initWithTweetType:(enum TWEETS_TYPE)tweetsType;
+- (void)onMentionsClickWithTweetType:(enum TWEETS_TYPE)type;
 @end

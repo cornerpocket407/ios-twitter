@@ -13,6 +13,7 @@
 @interface MenuViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
+- (IBAction)onMentionsClick:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *screenNameLabel;
 @end
 
@@ -42,4 +43,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)onMentionsClick:(id)sender {
+    [self.menuViewDelegate onMentionsClickWithTweetType:mentions];
+}
 @end

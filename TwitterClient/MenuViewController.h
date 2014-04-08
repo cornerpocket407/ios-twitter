@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "User.h"
+#import "TweetsType.h"
 
+@protocol MenuViewDelegate <NSObject>
+- (void)onMentionsClickWithTweetType:(enum TWEETS_TYPE)type;
+@end
 @interface MenuViewController : UIViewController
+@property (nonatomic, strong) id<MenuViewDelegate> menuViewDelegate;
 @end

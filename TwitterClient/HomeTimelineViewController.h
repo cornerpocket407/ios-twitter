@@ -11,16 +11,9 @@
 #import "TweetTableViewCell.h"
 #import "TweetController.h"
 #import "User.h"
+#import "TweetsType.h"
 
-enum TWEETS_TYPE
-{
-    mentions,
-    home,
-    user
-};
-@interface HomeTimelineViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ComposeFinishReloadTimelineDelegate, TweetBarReplyDelegate, ProfileImageDelegate> {
-  enum TWEETS_TYPE tweetsType;
-}
+@interface HomeTimelineViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ComposeFinishReloadTimelineDelegate, TweetBarReplyDelegate, ProfileImageDelegate>
 - (id)initWithUser:(User *) user;
 - (id)initWithTweetType:(enum TWEETS_TYPE)tweetsType;
 @end

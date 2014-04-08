@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *headerImage;
 @property (nonatomic, strong) NSArray *tweets;
 @property (nonatomic, strong) User *user;
+@property (nonatomic, assign) enum TWEETS_TYPE tweetsType;
 @end
 
 @implementation HomeTimelineViewController
@@ -46,6 +47,15 @@ static TweetTableViewCell *cellPrototype;
     return self;
 }
 
+- (id)initWithTweetType:(enum TWEETS_TYPE)type {
+    self = [super init];
+    if (self) {
+        self.tweetsType = type;
+        [self setAutomaticallyAdjustsScrollViewInsets:NO];
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -63,13 +73,6 @@ static TweetTableViewCell *cellPrototype;
     [self.tableView addSubview:refreshControl];
 }
 
-- (void)onPan:(UIPanGestureRecognizer *)panGestureRecognizer {
-    NSLog(@"on pan");
-    UIView *sideMenu = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-    sideMenu.backgroundColor = [UIColor redColor];
-    [self.view addSubview:sideMenu];
-}
-
 - (void)loadTimeline {
     void (^ success)(AFHTTPRequestOperation *operation, id responseObject) = ^void(AFHTTPRequestOperation *operation, id responseObject) {
         self.tweets = responseObject;
@@ -83,13 +86,18 @@ static TweetTableViewCell *cellPrototype;
     void (^ failure)(AFHTTPRequestOperation *operation, NSError *error) = ^void(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Fetched timeline failed: %@", error);
     };
-    [[TwitterClient instance] homeTimelineWithSuccess:success failure:failure];
-
-//
-    if (self.user.isAuthenicatedUser) {
-        [[TwitterClient instance] homeTimelineWithSuccess:success failure:failure];
-    } else {
-         [[TwitterClient instance] userTimelineForScreenName:self.user.screenName success:success failure:failure];
+    switch (self.tweetsType) {
+        case mentions:
+            [[TwitterClient instance] mentionsWithSuccess:success failure:failure];
+            break;
+        case home:
+            [[TwitterClient instance] homeTimelineWithSuccess:success failure:failure];
+            break;
+        case user:
+            [[TwitterClient instance] userTimelineForScreenName:self.user.screenName success:success failure:failure];
+            break;
+        default:
+            break;
     }
 }
 

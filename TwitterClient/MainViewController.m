@@ -35,7 +35,7 @@ static int const MENU_END_X = -20;
     self = [super init];
     if (self) {
         self.user = user;
-        self.hc = [[HomeTimelineViewController alloc] initWithUser:self.user];
+        self.hc = [[HomeTimelineViewController alloc] initWithTweetType:home];
         self.mc = [[MenuViewController alloc] init];
         [self addChildViewController:self.hc];
         [self addChildViewController:self.mc];

@@ -37,6 +37,8 @@ static int const MENU_END_X = -20;
         self.user = user;
         self.hc = [[HomeTimelineViewController alloc] initWithUser:self.user];
         self.mc = [[MenuViewController alloc] init];
+        [self addChildViewController:self.hc];
+        [self addChildViewController:self.mc];
     }
     return self;
 }
@@ -45,6 +47,8 @@ static int const MENU_END_X = -20;
 {
     [super viewDidLoad];
     [self setupHomeTimelineNavBar];
+    [self didMoveToParentViewController:self.hc];
+    
     [self.view addSubview:self.hc.view];
     UIView *mcv = self.mc.view;
     [self.view addSubview:mcv];

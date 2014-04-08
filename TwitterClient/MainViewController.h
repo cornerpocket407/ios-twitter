@@ -14,5 +14,5 @@
 @interface MainViewController : UIViewController <MenuViewDelegate>
 - (id)initWithUser:(User *)user;
 - (id)initWithTweetType:(enum TWEETS_TYPE)tweetsType;
-- (void)onMentionsClickWithTweetType:(enum TWEETS_TYPE)type;
+- (void)onMenuClickForType:(enum TWEETS_TYPE)type;
 @end

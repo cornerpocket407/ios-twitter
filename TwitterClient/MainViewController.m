@@ -131,9 +131,9 @@ static int const MENU_END_X = -20;
     // Dispose of any resources that can be recreated.
 }
 #pragma MenuViewDelegate
-- (void)onMentionsClickWithTweetType:(enum TWEETS_TYPE)type {
+- (void)onMenuClickForType:(enum TWEETS_TYPE)type {
     NSLog(@"menuview delegate received");
-    MainViewController *mc = [[MainViewController alloc] initWithTweetType:mentions];
+    MainViewController *mc = [[MainViewController alloc] initWithTweetType:type];
     [self.navigationController pushViewController:mc animated:YES];
 }
 @end

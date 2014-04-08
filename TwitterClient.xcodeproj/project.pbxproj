@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D55D8D818F37D7A006616D0 /* SideMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D55D8D718F37D7A006616D0 /* SideMenuView.m */; };
+		6D55D8DA18F37D92006616D0 /* SideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D55D8D918F37D92006616D0 /* SideMenuView.xib */; };
 		6D8C81FE18E688CD001D8CA2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D8C81FD18E688CD001D8CA2 /* Foundation.framework */; };
 		6D8C820018E688CD001D8CA2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D8C81FF18E688CD001D8CA2 /* CoreGraphics.framework */; };
 		6D8C820218E688CE001D8CA2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D8C820118E688CE001D8CA2 /* UIKit.framework */; };
@@ -52,6 +54,9 @@
 
 /* Begin PBXFileReference section */
 		034578B5DDA3485E8EE5C895 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		6D55D8D618F37D7A006616D0 /* SideMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuView.h; sourceTree = "<group>"; };
+		6D55D8D718F37D7A006616D0 /* SideMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuView.m; sourceTree = "<group>"; };
+		6D55D8D918F37D92006616D0 /* SideMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideMenuView.xib; sourceTree = "<group>"; };
 		6D8C81FA18E688CD001D8CA2 /* TwitterClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D8C81FD18E688CD001D8CA2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6D8C81FF18E688CD001D8CA2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -254,6 +259,9 @@
 				6D8C828418E96C16001D8CA2 /* TweetBarView.xib */,
 				6D8C828618E96C4E001D8CA2 /* TweetBarView.h */,
 				6D8C828718E96C4E001D8CA2 /* TweetBarView.m */,
+				6D55D8D618F37D7A006616D0 /* SideMenuView.h */,
+				6D55D8D718F37D7A006616D0 /* SideMenuView.m */,
+				6D55D8D918F37D92006616D0 /* SideMenuView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -341,6 +349,7 @@
 				6D8C828518E96C16001D8CA2 /* TweetBarView.xib in Resources */,
 				6D8C825D18E8EAE4001D8CA2 /* ComposeHeaderViewCell.xib in Resources */,
 				6D8C820818E688CF001D8CA2 /* InfoPlist.strings in Resources */,
+				6D55D8DA18F37D92006616D0 /* SideMenuView.xib in Resources */,
 				6D8C821018E688D1001D8CA2 /* Images.xcassets in Resources */,
 				6D8C823A18E6BFEF001D8CA2 /* HomeTimelineViewController.xib in Resources */,
 				6D8C823518E6967F001D8CA2 /* LoginViewController.xib in Resources */,
@@ -407,6 +416,7 @@
 				6D8C825C18E8EAE4001D8CA2 /* ComposeHeaderViewCell.m in Sources */,
 				6D8C820A18E688CF001D8CA2 /* main.m in Sources */,
 				6D8C825718E8DD68001D8CA2 /* ComposeViewController.m in Sources */,
+				6D55D8D818F37D7A006616D0 /* SideMenuView.m in Sources */,
 				6D8C825218E7C5E7001D8CA2 /* TweetTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

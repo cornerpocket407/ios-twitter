@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *headerBackgroundImage;
 @property (weak, nonatomic) IBOutlet UIImageView *headerImage;
 @property (nonatomic, strong) NSArray *tweets;
+@property (weak, nonatomic) IBOutlet UIView *hamburgerMenuView;
 @property (nonatomic, strong) User *user;
 @end
 
@@ -61,26 +62,26 @@ static TweetTableViewCell *cellPrototype;
     [self.tableView addSubview:refreshControl];
 }
 
+- (void)onPan:(UIPanGestureRecognizer *)panGestureRecognizer {
+    NSLog(@"on pan");
+    UIView *sideMenu = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    sideMenu.backgroundColor = [UIColor redColor];
+    [self.view addSubview:sideMenu];
+}
+
 - (void)loadTimeline {
     void (^ success)(AFHTTPRequestOperation *operation, id responseObject) = ^void(AFHTTPRequestOperation *operation, id responseObject) {
         self.tweets = responseObject;
         [self.tableView reloadData];
         
-        if (self.user.isAuthenicatedUser) {
+//        if (self.user.isAuthenicatedUser) {
             [self setupHomeTimelineNavBar];
-        }
+//        }
         [self.headerBackgroundImage setImageWithURL:[NSURL URLWithString:self.user.profileBackgroundImageUrl]];
         [self.headerImage setImageWithURL:[NSURL URLWithString: self.user.profileImageUrl]];
-
-//        if (self.user) {
-//            [self.headerBackgroundImage setImageWithURL:[NSURL URLWithString:self.user.profileBackgroundImageUrl]];
-//            [self.headerImage setImageWithURL:[NSURL URLWithString:self.user.profileImageUrl]];
-//        } else {
-//            User *currentUser = [[TwitterClient instance] currentUser];
-//            [self.headerBackgroundImage setImageWithURL:[NSURL URLWithString:currentUser.profileBackgroundImageUrl]];
-//            [self.headerImage setImageWithURL:[NSURL URLWithString: currentUser.profileImageUrl]];
-//            [self setupHomeTimelineNavBar];
-//        }
+//        
+//        UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onPan:)];
+//        [self.view addGestureRecognizer:panGestureRecognizer];
     };
     void (^ failure)(AFHTTPRequestOperation *operation, NSError *error) = ^void(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Fetched timeline failed: %@", error);
@@ -108,11 +109,28 @@ static TweetTableViewCell *cellPrototype;
     newBtn.tintColor = [UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = newBtn;
     
-    UIBarButtonItem *signOutBtn = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStyleBordered target:self action: @selector(onSignOut)];
+//    UIBarButtonItem *signOutBtn = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStyleBordered target:self action: @selector(onSignOut)];
+    UIBarButtonItem *signOutBtn = [[UIBarButtonItem alloc] initWithTitle:@"Test" style:UIBarButtonItemStyleBordered target:self action: @selector(onTest)];
+
     signOutBtn.tintColor = [UIColor whiteColor];
     self.navigationItem.leftBarButtonItem = signOutBtn;
 }
-
+- (void)onTest {
+    NSLog(@"clickced test");
+    UIView *sideMenu = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 100)];
+    sideMenu.backgroundColor = [UIColor yellowColor];
+    [self.view addSubview:sideMenu];
+    [UIView animateWithDuration:1 animations:^{
+        CGRect frame = sideMenu.frame;
+        CGSize size = sideMenu.frame.size;
+        CGSize newSize = CGSizeMake(size.width + 100, size.height);
+        frame.size = newSize;
+        sideMenu.frame = frame;
+        
+    } completion:^(BOOL finished) {
+        
+    }];    
+}
 - (void)onSignOut {
     [[TwitterClient instance] signOut];
 	[self.navigationController popViewControllerAnimated:YES];

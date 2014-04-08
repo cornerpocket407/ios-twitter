@@ -29,6 +29,7 @@
     self.screenName = [decoder decodeObjectForKey:@"screenName"];
     self.profileImageUrl = [decoder decodeObjectForKey:@"profileImageUrl"];
     self.profileBackgroundImageUrl = [decoder decodeObjectForKey:@"profileBackgroundImageUrl"];
+    self.isAuthenicatedUser = [decoder decodeBoolForKey:@"isAuthenicatedUser"];
     return self;
 }
 
@@ -37,5 +38,6 @@
     [encoder encodeObject:self.screenName forKey:@"screenName"];
     [encoder encodeObject:self.profileImageUrl forKey:@"profileImageUrl"];
     [encoder encodeObject:self.profileBackgroundImageUrl forKey:@"profileBackgroundImageUrl"];
+    [encoder encodeBool:self.isAuthenicatedUser forKey:@"isAuthenicatedUser"];
 }
 @end

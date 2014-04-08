@@ -62,7 +62,6 @@ static int const MENU_END_X = -20;
     [super viewDidLoad];
     [self setupHomeTimelineNavBar];
     [self didMoveToParentViewController:self.mainVC];
-    
     [self.view addSubview:self.mainVC.view];
     UIView *mcv = self.menuVC.view;
     [self.view addSubview:mcv];
@@ -91,6 +90,8 @@ static int const MENU_END_X = -20;
 }
 
 - (void)onSignOut {
+    [self.mainVC removeFromParentViewController];
+    [self.menuVC removeFromParentViewController];
     [[TwitterClient instance] signOut];
 	[self.navigationController popViewControllerAnimated:YES];
 }

@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		6D4FCDB018F4A3A2003F24ED /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4FCDAE18F4A3A2003F24ED /* UserProfileViewController.m */; };
 		6D4FCDB118F4A3A2003F24ED /* UserProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D4FCDAF18F4A3A2003F24ED /* UserProfileViewController.xib */; };
-		6D55D8D818F37D7A006616D0 /* SideMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D55D8D718F37D7A006616D0 /* SideMenuView.m */; };
-		6D55D8DA18F37D92006616D0 /* SideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D55D8D918F37D92006616D0 /* SideMenuView.xib */; };
+		6D4FCDB318F52DA3003F24ED /* UserProfileHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D4FCDB218F52DA3003F24ED /* UserProfileHeader.xib */; };
+		6D4FCDB618F52ECD003F24ED /* UserProfileHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4FCDB518F52ECD003F24ED /* UserProfileHeaderView.m */; };
 		6D55D8DE18F3C61E006616D0 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D55D8DC18F3C61E006616D0 /* MenuViewController.m */; };
 		6D55D8DF18F3C61E006616D0 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D55D8DD18F3C61E006616D0 /* MenuViewController.xib */; };
 		6D55D8E318F3C80D006616D0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D55D8E118F3C80D006616D0 /* MainViewController.m */; };
@@ -64,9 +64,9 @@
 		6D4FCDAD18F4A3A2003F24ED /* UserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileViewController.h; sourceTree = "<group>"; };
 		6D4FCDAE18F4A3A2003F24ED /* UserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
 		6D4FCDAF18F4A3A2003F24ED /* UserProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProfileViewController.xib; sourceTree = "<group>"; };
-		6D55D8D618F37D7A006616D0 /* SideMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuView.h; sourceTree = "<group>"; };
-		6D55D8D718F37D7A006616D0 /* SideMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuView.m; sourceTree = "<group>"; };
-		6D55D8D918F37D92006616D0 /* SideMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideMenuView.xib; sourceTree = "<group>"; };
+		6D4FCDB218F52DA3003F24ED /* UserProfileHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProfileHeader.xib; sourceTree = "<group>"; };
+		6D4FCDB418F52ECD003F24ED /* UserProfileHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileHeaderView.h; sourceTree = "<group>"; };
+		6D4FCDB518F52ECD003F24ED /* UserProfileHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileHeaderView.m; sourceTree = "<group>"; };
 		6D55D8DB18F3C61E006616D0 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		6D55D8DC18F3C61E006616D0 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		6D55D8DD18F3C61E006616D0 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
@@ -288,9 +288,9 @@
 				6D8C828418E96C16001D8CA2 /* TweetBarView.xib */,
 				6D8C828618E96C4E001D8CA2 /* TweetBarView.h */,
 				6D8C828718E96C4E001D8CA2 /* TweetBarView.m */,
-				6D55D8D618F37D7A006616D0 /* SideMenuView.h */,
-				6D55D8D718F37D7A006616D0 /* SideMenuView.m */,
-				6D55D8D918F37D92006616D0 /* SideMenuView.xib */,
+				6D4FCDB218F52DA3003F24ED /* UserProfileHeader.xib */,
+				6D4FCDB418F52ECD003F24ED /* UserProfileHeaderView.h */,
+				6D4FCDB518F52ECD003F24ED /* UserProfileHeaderView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -378,12 +378,12 @@
 				6D8C828518E96C16001D8CA2 /* TweetBarView.xib in Resources */,
 				6D8C825D18E8EAE4001D8CA2 /* ComposeHeaderViewCell.xib in Resources */,
 				6D8C820818E688CF001D8CA2 /* InfoPlist.strings in Resources */,
-				6D55D8DA18F37D92006616D0 /* SideMenuView.xib in Resources */,
 				6D55D8E418F3C80D006616D0 /* MainViewController.xib in Resources */,
 				6D55D8DF18F3C61E006616D0 /* MenuViewController.xib in Resources */,
 				6D8C821018E688D1001D8CA2 /* Images.xcassets in Resources */,
 				6D8C823A18E6BFEF001D8CA2 /* HomeTimelineViewController.xib in Resources */,
 				6D8C823518E6967F001D8CA2 /* LoginViewController.xib in Resources */,
+				6D4FCDB318F52DA3003F24ED /* UserProfileHeader.xib in Resources */,
 				6D4FCDB118F4A3A2003F24ED /* UserProfileViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,6 +442,7 @@
 				6D55D8E318F3C80D006616D0 /* MainViewController.m in Sources */,
 				6D8C826118E939E3001D8CA2 /* TweetController.m in Sources */,
 				6D55D8DE18F3C61E006616D0 /* MenuViewController.m in Sources */,
+				6D4FCDB618F52ECD003F24ED /* UserProfileHeaderView.m in Sources */,
 				6D8C823918E6BFEF001D8CA2 /* HomeTimelineViewController.m in Sources */,
 				6D8C823E18E7585F001D8CA2 /* Tweet.m in Sources */,
 				6D4FCDB018F4A3A2003F24ED /* UserProfileViewController.m in Sources */,
@@ -452,7 +453,6 @@
 				6D8C825C18E8EAE4001D8CA2 /* ComposeHeaderViewCell.m in Sources */,
 				6D8C820A18E688CF001D8CA2 /* main.m in Sources */,
 				6D8C825718E8DD68001D8CA2 /* ComposeViewController.m in Sources */,
-				6D55D8D818F37D7A006616D0 /* SideMenuView.m in Sources */,
 				6D8C825218E7C5E7001D8CA2 /* TweetTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

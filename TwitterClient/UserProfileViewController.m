@@ -14,13 +14,11 @@
 #import "ComposeViewController.h"
 #import "TweetController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "UserProfileHeaderView.h"
 
 @interface UserProfileViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIImageView *profileBackgroundImage;
-@property (weak, nonatomic) IBOutlet UIImageView *profileImage;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *screenNameLabel;
+@property (weak, nonatomic) IBOutlet UserProfileHeaderView *userProfileHeaderView;
 @property (nonatomic, strong) User *user;
 @property (nonatomic, strong) NSArray *tweets;
 @end
@@ -61,6 +59,7 @@ static TweetTableViewCell *cellPrototype;
     [self.tableView registerNib:tweetCellNib forCellReuseIdentifier:@"TweetTableViewCell"];
     cellPrototype = [self.tableView dequeueReusableCellWithIdentifier:@"TweetTableViewCell"];
     
+    self.userProfileHeaderView.user = self.user;
     [self loadTimeline];
     
     //sets up refresh control
@@ -74,8 +73,8 @@ static TweetTableViewCell *cellPrototype;
         self.tweets = responseObject;
         [self.tableView reloadData];
         //            [self setupHomeTimelineNavBar];
-        [self.profileBackgroundImage setImageWithURL:[NSURL URLWithString:self.user.profileBackgroundImageUrl]];
-        [self.profileImage setImageWithURL:[NSURL URLWithString: self.user.profileImageUrl]];
+//        [self.profileBackgroundImage setImageWithURL:[NSURL URLWithString:self.user.profileBackgroundImageUrl]];
+//        [self.profileImage setImageWithURL:[NSURL URLWithString: self.user.profileImageUrl]];
     };
     void (^ failure)(AFHTTPRequestOperation *operation, NSError *error) = ^void(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Fetched timeline failed: %@", error);

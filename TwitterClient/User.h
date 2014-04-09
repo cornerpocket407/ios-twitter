@@ -15,5 +15,8 @@
 @property (nonatomic, strong) NSString *screenName;
 @property (nonatomic, strong) NSString *profileImageUrl;
 @property (nonatomic, strong) NSString *profileBackgroundImageUrl;
+@property (nonatomic, strong) NSNumber *followers;
+@property (nonatomic, strong) NSNumber *following;
+@property (nonatomic, strong) NSNumber *tweets;
 @property (nonatomic, assign) BOOL isAuthenicatedUser;
 @end

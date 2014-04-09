@@ -16,6 +16,8 @@
         self.propertyMap = @{@"screen_name": @"screenName",
                              @"profile_image_url": @"profileImageUrl",
                              @"profile_background_image_url": @"profileBackgroundImageUrl",
+                             @"followers_count": @"followers",
+                             @"statuses_count": @"tweets",
                              @"name":  @"name"};
     }
     return self;

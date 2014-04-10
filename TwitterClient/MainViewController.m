@@ -12,8 +12,9 @@
 #import "UserProfileViewController.h"
 #import "TwitterClient.h"
 
-static int const MENU_BEGIN_X = -320;
-static int const MENU_END_X = -20;
+static int const MENU_SIZE = 290;
+static int const MENU_BEGIN_X = -MENU_SIZE;
+static int const MENU_END_X = 0;
 
 @interface MainViewController ()
 @property (nonatomic, strong) UIViewController *mainVC;
@@ -64,10 +65,12 @@ static int const MENU_END_X = -20;
     [self didMoveToParentViewController:self.mainVC];
     [self.view addSubview:self.mainVC.view];
     UIView *mcv = self.menuVC.view;
-    [self.view addSubview:mcv];
     CGRect frame = mcv.frame;
     frame.origin.x = MENU_BEGIN_X;
-    self.menuVC.view.frame = frame;
+    frame.size.width = MENU_SIZE;
+    mcv.frame = frame;
+    [self.view addSubview:mcv];
+    
     [self.view bringSubviewToFront:self.mainVC.view];
     UIPanGestureRecognizer *panGesRec = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onPan:)];
     [self.view addGestureRecognizer:panGesRec];
@@ -103,24 +106,25 @@ static int const MENU_END_X = -20;
 }
 
 - (void)onPan:(UIPanGestureRecognizer *)panGesRec {
-        UIView *mcv = self.menuVC.view;
-        CGRect frame = mcv.frame;
+    UIView *mcv = self.menuVC.view;
+    CGRect frame = mcv.frame;
+    [self.view bringSubviewToFront:mcv];
     if (panGesRec.state == UIGestureRecognizerStateBegan) {
         [self.view bringSubviewToFront:mcv];
         if (frame.origin.x == MENU_BEGIN_X) {
-            [self setMenuOriginX:MENU_BEGIN_X + 10];
+            [self setMenuOriginX: [panGesRec locationInView:self.view].x - MENU_SIZE];
         }
     } else if (panGesRec.state == UIGestureRecognizerStateChanged) {
         NSLog(@"state changed origin.x: %f", frame.origin.x);
         CGPoint translation = [panGesRec translationInView:self.view];
         NSLog(@"translation: %f %f", translation.x, translation.y);
-        if ((frame.origin.x <= -25 && translation.x > 0) || (frame.origin.x >= -320 && translation.x < 0)) {
+        if ((frame.origin.x <= MENU_END_X && translation.x > 0) || (frame.origin.x >= MENU_BEGIN_X && translation.x < 0)) {
             frame.origin.x = frame.origin.x + translation.x;
             mcv.frame = frame;
             [panGesRec setTranslation:CGPointZero inView:self.view];
         }
     } else if (panGesRec.state == UIGestureRecognizerStateEnded) {
-        if (frame.origin.x >= MENU_BEGIN_X/2) {
+        if (frame.origin.x >= MENU_BEGIN_X * 1/3) {
             [self setMenuOriginX:MENU_END_X];
         } else {
             [self setMenuOriginX:MENU_BEGIN_X];
